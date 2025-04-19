@@ -6,1098 +6,1066 @@
 <title>Comparação de Preços</title>
 <style>
 body { font-family: Arial, sans-serif; padding: 20px; }
-table { width: 100%; border-collapse: collapse; margin-top: 20px; min-width: 900px; }
+table { width: 100%; border-collapse: collapse; }
 th, td { padding: 10px; border: 1px solid #ccc; text-align: center; }
 th { background-color: #f5f5f5; }
-label, select, button { margin-top: 10px; font-size: 16px; }
-button { margin-left: 10px; padding: 5px 10px; }
-@media (max-width: 768px) {
-  body { padding: 10px; font-size: 14px; }
-  table { font-size: 12px; }
-  .tabela-wrapper { overflow-x: auto; }
-}
-</style>
-<script>
-function filtrarSubfamilia() {
-  var filtro = document.getElementById('filtroSubfamilia').value.toLowerCase();
-  var linhas = document.getElementById('tabelaComparacao').rows;
-  for (var i = 1; i < linhas.length; i++) {
-    var subfamilia = linhas[i].cells[11].innerText.toLowerCase();
-    linhas[i].style.display = (filtro === '' || subfamilia === filtro) ? '' : 'none';
+@media screen and (max-width: 768px) {
+  table, thead, tbody, th, td, tr { display: block; }
+  thead { display: none; }
+  tr { margin-bottom: 15px; border: 1px solid #ccc; padding: 10px; border-radius: 10px; background-color: #f9f9f9; }
+  td { text-align: left; padding: 5px 10px; border: none; position: relative; }
+  td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
   }
 }
-function limparFiltro() {
-  document.getElementById('filtroSubfamilia').value = '';
-  filtrarSubfamilia();
-}
-</script>
+</style>
 </head>
 <body>
 <h1>Comparação de Preços - Menor Preço por Artigo</h1>
-<label for='filtroSubfamilia'>Filtrar por SubFamília:</label>
-<select id='filtroSubfamilia' onchange='filtrarSubfamilia()'>
-<option value=''>-- Todas --</option>
-<option value='BEBIDAS ALCOOL'>BEBIDAS ALCOOL</option>
-<option value='BEBIDAS BAR'>BEBIDAS BAR</option>
-<option value='BEBIDAS SUMOS'>BEBIDAS SUMOS</option>
-<option value='CHARCUTERIA'>CHARCUTERIA</option>
-<option value='DETERGENTES'>DETERGENTES</option>
-<option value='DOCES'>DOCES</option>
-<option value='FRUTAS E LEGUMES'>FRUTAS E LEGUMES</option>
-<option value='MERCEARIA'>MERCEARIA</option>
-<option value='PAPEL GUARDANAPOS'>PAPEL GUARDANAPOS</option>
-<option value='PEIXARIA'>PEIXARIA</option>
-<option value='PET FOOD'>PET FOOD</option>
-<option value='PILHAS RELOGIO'>PILHAS RELOGIO</option>
-<option value='PNEUS C3'>PNEUS C3</option>
-<option value='PRATOS COZINHADOS'>PRATOS COZINHADOS</option>
-<option value='PRODUTOS EM CONSERVA'>PRODUTOS EM CONSERVA</option>
-<option value='PRODUTOS LACTEOS'>PRODUTOS LACTEOS</option>
-<option value='TALHO'>TALHO</option>
-</select>
-<button onclick='limparFiltro()'>Limpar Filtro</button>
-<div class='tabela-wrapper'>
-<table id='tabelaComparacao'>
+<table>
 <tr>
 <th>Código</th><th>Artigo</th><th>Fornecedor</th><th>Preço Artigo</th><th>Preço Últ Compra</th><th>IVA</th><th>Preço Kg</th><th>Preço Litro</th><th>Qtd</th><th>Unidade</th><th>Preço Unitário</th><th>SubFamilia</th>
 </tr>
 <tr>
-<td>Q17.001</td>
-<td>AGUA COM GAS (25 CL)</td>
-<td style='background-color:#FFCCCC;'>LIDL</td>
-<td>1,39</td>
-<td>1,39</td>
-<td>13,00%</td>
-<td style='background-color:#FFCCCC; font-weight:bold;'>0,00</td>
-<td style='background-color:#FFCCCC; font-weight:bold;'>0,93</td>
-<td>1,000</td>
-<td>Pack 6</td>
-<td>1,39</td>
-<td>BEBIDAS SUMOS</td>
-</tr>
-<tr>
-<td>Q17.002</td>
-<td>AGUA TONICA REGULAR (33 Cl)</td>
-<td style='background-color:#FFCCCC;'>LIDL</td>
-<td>0,49</td>
-<td>0,49</td>
-<td>23,00%</td>
-<td style='background-color:#FFCCCC; font-weight:bold;'>0,00</td>
-<td style='background-color:#FFCCCC; font-weight:bold;'>1,48</td>
-<td>8,000</td>
-<td>Unidade</td>
-<td>0,06</td>
-<td>BEBIDAS SUMOS</td>
-</tr>
-<tr>
-<td>D4.001</td>
-<td>ALHO FRANCES (400 Gr)</td>
-<td style='background-color:#FFCCCC;'>LIDL</td>
-<td>1,89</td>
-<td>1,49</td>
-<td>6,00%</td>
-<td style='background-color:#FFCCCC; font-weight:bold;'>4,73</td>
-<td style='background-color:#FFCCCC; font-weight:bold;'>0,00</td>
-<td>1,000</td>
-<td>Unidade</td>
-<td>1,49</td>
-<td>FRUTAS E LEGUMES</td>
-</tr>
-<tr>
-<td>R18.001</td>
-<td>AMACIADOR AZUL</td>
-<td style='background-color:#CCFFCC;'></td>
-<td>2,20</td>
-<td>0.00</td>
-<td>0.00</td>
-<td style='background-color:#CCFFCC; font-weight:bold;'>0,00</td>
-<td style='background-color:#CCFFCC; font-weight:bold;'>1,10</td>
-<td>0</td>
-<td>Unidade</td>
-<td>0.00</td>
-<td>DETERGENTES</td>
-</tr>
-<tr>
-<td>E5.003</td>
-<td>ARROZ BASMATI HACENDADO</td>
-<td style='background-color:#CCFFCC;'></td>
-<td>2,00</td>
-<td>0.00</td>
-<td>0.00</td>
-<td style='background-color:#CCFFCC; font-weight:bold;'>2,00</td>
-<td style='background-color:#CCFFCC; font-weight:bold;'>0,00</td>
-<td>0</td>
-<td>KILO</td>
-<td>0.00</td>
-<td>MERCEARIA</td>
-</tr>
-<tr>
-<td>E5.002</td>
-<td>ARROZ VAPORIZADO HACENDADO</td>
-<td style='background-color:#CCFFCC;'></td>
-<td>1,35</td>
-<td>0.00</td>
-<td>0.00</td>
-<td style='background-color:#CCFFCC; font-weight:bold;'>1,35</td>
-<td style='background-color:#CCFFCC; font-weight:bold;'>0,00</td>
-<td>0</td>
-<td>KILO</td>
-<td>0.00</td>
-<td>MERCEARIA</td>
-</tr>
-<tr>
-<td>E5.001</td>
-<td>AZEITE </td>
-<td style='background-color:#CCFFCC;'></td>
-<td>4,35</td>
-<td>0.00</td>
-<td>0.00</td>
-<td style='background-color:#CCFFCC; font-weight:bold;'>0,00</td>
-<td style='background-color:#CCFFCC; font-weight:bold;'>5,80</td>
-<td>0</td>
-<td>Unidade</td>
-<td>0.00</td>
-<td>MERCEARIA</td>
-</tr>
-<tr>
-<td>O15.001</td>
-<td>BACALHAU GRAUDO</td>
-<td style='background-color:#FFCCCC;'>LIDL</td>
-<td>28,54</td>
-<td>28,54</td>
-<td>6,00%</td>
-<td style='background-color:#FFCCCC; font-weight:bold;'>13,99</td>
-<td style='background-color:#FFCCCC; font-weight:bold;'>0,00</td>
-<td>1,000</td>
-<td>KILO</td>
-<td>28,54</td>
-<td>PEIXARIA</td>
-</tr>
-<tr>
-<td>B2.001</td>
-<td>BACON EM PEDACOS (200 Gr)</td>
-<td style='background-color:#FFCCCC;'>LIDL</td>
-<td>2,19</td>
-<td>2,19</td>
-<td>23,00%</td>
-<td style='background-color:#FFCCCC; font-weight:bold;'>10,95</td>
-<td style='background-color:#FFCCCC; font-weight:bold;'>0,00</td>
-<td>2,000</td>
-<td>Unidade</td>
-<td>1,10</td>
-<td>CHARCUTERIA</td>
-</tr>
-<tr>
-<td>B2.012</td>
-<td>BACON FATIADO (200 Grs)</td>
-<td style='background-color:#FFCCCC;'>LIDL</td>
-<td>2,39</td>
-<td>2,39</td>
-<td>23,00%</td>
-<td style='background-color:#FFCCCC; font-weight:bold;'>11,95</td>
-<td style='background-color:#FFCCCC; font-weight:bold;'>0,00</td>
-<td>1,000</td>
-<td>Unidade</td>
-<td>2,39</td>
-<td>CHARCUTERIA</td>
-</tr>
-<tr>
-<td>B2.002</td>
-<td>BACON FATIADO (300 Gr)</td>
-<td style='background-color:#FFCCCC;'>LIDL</td>
-<td>3,09</td>
-<td>3,09</td>
-<td>23,00%</td>
-<td style='background-color:#FFCCCC; font-weight:bold;'>10,30</td>
-<td style='background-color:#FFCCCC; font-weight:bold;'>0,00</td>
-<td>1,000</td>
-<td>Unidade</td>
-<td>3,09</td>
-<td>CHARCUTERIA</td>
-</tr>
-<tr>
-<td>M13.003</td>
-<td>BATATAS FRITAS LISA GOURMET (180Grs)</td>
-<td style='background-color:#FFCCCC;'>LIDL</td>
-<td>1,45</td>
-<td>1,45</td>
-<td>23,00%</td>
-<td style='background-color:#FFCCCC; font-weight:bold;'>8,06</td>
-<td style='background-color:#FFCCCC; font-weight:bold;'>0,00</td>
-<td>2,000</td>
-<td>Unidade</td>
-<td>0,73</td>
-<td>PRATOS COZINHADOS</td>
-</tr>
-<tr>
-<td>A1.001</td>
-<td>BIFE DE NOVILHO</td>
-<td style='background-color:#CCFFCC;'></td>
-<td>7,86</td>
-<td>0.00</td>
-<td>0.00</td>
-<td style='background-color:#CCFFCC; font-weight:bold;'>13,10</td>
-<td style='background-color:#CCFFCC; font-weight:bold;'>0,00</td>
-<td>0</td>
-<td>Unidade</td>
-<td>0.00</td>
-<td>TALHO</td>
-</tr>
-<tr>
-<td>C3.003</td>
-<td>BLUE MOSCATO (Mercadona)</td>
-<td style='background-color:#CCCCFF;'>MERCADONA PORTUGAL</td>
-<td>2,20</td>
-<td>2,19</td>
-<td>23,00%</td>
-<td style='background-color:#CCCCFF; font-weight:bold;'>0,00</td>
-<td style='background-color:#CCCCFF; font-weight:bold;'>2,93</td>
-<td>1,000</td>
-<td>Unidade</td>
-<td>2,19</td>
-<td>BEBIDAS ALCOOL</td>
-</tr>
-<tr>
-<td>D4.005</td>
-<td>BROCOLOS</td>
-<td style='background-color:#FFCCCC;'>LIDL</td>
-<td>1,15</td>
-<td>1,89</td>
-<td>6,00%</td>
-<td style='background-color:#FFCCCC; font-weight:bold;'>2,30</td>
-<td style='background-color:#FFCCCC; font-weight:bold;'>0,00</td>
-<td>0,000</td>
-<td>KILO</td>
-<td>0.00</td>
-<td>FRUTAS E LEGUMES</td>
-</tr>
-<tr>
-<td>E5.005</td>
-<td>CAFE CAPSULA  EXTRAFORTE (104 Gr)</td>
-<td style='background-color:#CCFFCC;'></td>
-<td>3,65</td>
-<td>0.00</td>
-<td>0.00</td>
-<td style='background-color:#CCFFCC; font-weight:bold;'>35,10</td>
-<td style='background-color:#CCFFCC; font-weight:bold;'>0,00</td>
-<td>0</td>
-<td>Unidade</td>
-<td>0.00</td>
-<td>MERCEARIA</td>
-</tr>
-<tr>
-<td>E5.004</td>
-<td>CAFE CAPSULA RISTRETO (106 Gr)</td>
-<td style='background-color:#CCFFCC;'></td>
-<td>4,35</td>
-<td>0.00</td>
-<td>0.00</td>
-<td style='background-color:#CCFFCC; font-weight:bold;'>41,04</td>
-<td style='background-color:#CCFFCC; font-weight:bold;'>0,00</td>
-<td>0</td>
-<td>KILO</td>
-<td>0.00</td>
-<td>MERCEARIA</td>
-</tr>
-<tr>
-<td>F7.008</td>
-<td>CAMENBERT PRESIDENT (250Grs)</td>
-<td style='background-color:#FFFFCC;'>PRIMAPRIX</td>
-<td>2,95</td>
-<td>2,95</td>
-<td>4,00%</td>
-<td style='background-color:#FFFFCC; font-weight:bold;'>11,80</td>
-<td style='background-color:#FFFFCC; font-weight:bold;'>0,00</td>
-<td>1,000</td>
-<td>Unidade</td>
-<td>2,95</td>
-<td>PRODUTOS LACTEOS</td>
-</tr>
-<tr>
-<td>D4.004</td>
-<td>CENOURA</td>
-<td style='background-color:#FFCCCC;'>LIDL</td>
-<td>0,79</td>
-<td>0,79</td>
-<td>6,00%</td>
-<td style='background-color:#FFCCCC; font-weight:bold;'>0,79</td>
-<td style='background-color:#FFCCCC; font-weight:bold;'>0,00</td>
-<td>1,000</td>
-<td>KILO</td>
-<td>0,79</td>
-<td>FRUTAS E LEGUMES</td>
-</tr>
-<tr>
-<td>C3.001</td>
-<td>CERVEJA 1906 ( 33 cl )</td>
-<td style='background-color:#FFCCFF;'>AUCHAN</td>
-<td>7,32</td>
-<td>4,77</td>
-<td>23,00%</td>
-<td style='background-color:#FFCCFF; font-weight:bold;'>0,00</td>
-<td style='background-color:#FFCCFF; font-weight:bold;'>3,70</td>
-<td>3,000</td>
-<td>Pack 6</td>
-<td>1,59</td>
-<td>BEBIDAS ALCOOL</td>
-</tr>
-<tr>
-<td>C3.002</td>
-<td>CERVEJA SAGRES (33 cl)</td>
-<td style='background-color:#CCFFCC;'></td>
-<td>0,59</td>
-<td>0.00</td>
-<td>0.00</td>
-<td style='background-color:#CCFFCC; font-weight:bold;'>0,00</td>
-<td style='background-color:#CCFFCC; font-weight:bold;'>1,79</td>
-<td>0</td>
-<td>Unidade</td>
-<td>0.00</td>
-<td>BEBIDAS ALCOOL</td>
-</tr>
-<tr>
-<td>N14.002</td>
-<td>CHOCOLATE NEGRO LARANJA (100 Grs)</td>
-<td style='background-color:#CCFFFF;'>GADIS</td>
-<td>1,85</td>
-<td>1,85</td>
-<td>21,00%</td>
-<td style='background-color:#CCFFFF; font-weight:bold;'>18,50</td>
-<td style='background-color:#CCFFFF; font-weight:bold;'>0,00</td>
-<td>1,000</td>
-<td>Unidade</td>
-<td>1,85</td>
-<td>DOCES</td>
-</tr>
-<tr>
-<td>B2.007</td>
-<td>CHOUCROUTE KG</td>
-<td style='background-color:#F0D9FF;'>LECLERC</td>
-<td>5,99</td>
-<td>5,99</td>
-<td>13,00%</td>
-<td style='background-color:#F0D9FF; font-weight:bold;'>11,01</td>
-<td style='background-color:#F0D9FF; font-weight:bold;'>0,00</td>
-<td>1,000</td>
-<td>KILO</td>
-<td>5,99</td>
-<td>CHARCUTERIA</td>
-</tr>
-<tr>
-<td>B2.005</td>
-<td>CHOURIÇA DE CEBOLA</td>
-<td style='background-color:#D9F0FF;'>DIVERSOS </td>
-<td>6,65</td>
-<td>6,65</td>
-<td>7,00%</td>
-<td style='background-color:#D9F0FF; font-weight:bold;'>10,90</td>
-<td style='background-color:#D9F0FF; font-weight:bold;'>0,00</td>
-<td>1,000</td>
-<td>KILO</td>
-<td>6,65</td>
-<td>CHARCUTERIA</td>
-</tr>
-<tr>
-<td>B2.004</td>
-<td>CHOURICO DE CARNE</td>
-<td style='background-color:#D9F0FF;'>DIVERSOS </td>
-<td>2,50</td>
-<td>10,00</td>
-<td>6,00%</td>
-<td style='background-color:#D9F0FF; font-weight:bold;'>10,00</td>
-<td style='background-color:#D9F0FF; font-weight:bold;'>0,00</td>
-<td>1,000</td>
-<td>KILO</td>
-<td>10,00</td>
-<td>CHARCUTERIA</td>
-</tr>
-<tr>
-<td>G7.006</td>
-<td>COGUMELOS LAMINADOS (180 Grs)</td>
-<td style='background-color:#CCFFCC;'></td>
-<td>1,35</td>
-<td>0.00</td>
-<td>0.00</td>
-<td style='background-color:#CCFFCC; font-weight:bold;'>7,50</td>
-<td style='background-color:#CCFFCC; font-weight:bold;'>0,00</td>
-<td>0</td>
-<td>Unidade</td>
-<td>0.00</td>
-<td>PRODUTOS EM CONSERVA</td>
-</tr>
-<tr>
-<td>G7.005</td>
-<td>COGUMELOS LAMINADOS (185 Grs)</td>
-<td style='background-color:#FFCCFF;'>AUCHAN</td>
-<td>1,02</td>
-<td>1,02</td>
-<td>10,00%</td>
-<td style='background-color:#FFCCFF; font-weight:bold;'>5,51</td>
-<td style='background-color:#FFCCFF; font-weight:bold;'>0,00</td>
-<td>3,000</td>
-<td>Unidade</td>
-<td>0,34</td>
-<td>PRODUTOS EM CONSERVA</td>
-</tr>
-<tr>
-<td>G7.007</td>
-<td>COGUMELOS LAMINADOS (230 Grs)</td>
-<td style='background-color:#CCFFCC;'></td>
-<td>1,25</td>
-<td>0.00</td>
-<td>0.00</td>
-<td style='background-color:#CCFFCC; font-weight:bold;'>5,43</td>
-<td style='background-color:#CCFFCC; font-weight:bold;'>0,00</td>
-<td>0</td>
-<td>Unidade</td>
-<td>0.00</td>
-<td>PRODUTOS EM CONSERVA</td>
-</tr>
-<tr>
-<td>G7.004</td>
-<td>COGUMELOS SETAS Surtido</td>
-<td style='background-color:#FFCCFF;'>AUCHAN</td>
-<td>2,99</td>
-<td>2,99</td>
-<td>10,00%</td>
-<td style='background-color:#FFCCFF; font-weight:bold;'>7,97</td>
-<td style='background-color:#FFCCFF; font-weight:bold;'>0,00</td>
-<td>1,000</td>
-<td>Unidade</td>
-<td>2,99</td>
-<td>PRODUTOS EM CONSERVA</td>
-</tr>
-<tr>
-<td>A1.003</td>
-<td>COXA DE FRANGO</td>
-<td style='background-color:#FFCCCC;'>LIDL</td>
-<td>5,69</td>
-<td>4,99</td>
-<td>6,00%</td>
-<td style='background-color:#FFCCCC; font-weight:bold;'>4,99</td>
-<td style='background-color:#FFCCCC; font-weight:bold;'>0,00</td>
-<td>1,000</td>
-<td>KILO</td>
-<td>4,99</td>
-<td>TALHO</td>
-</tr>
-<tr>
-<td>H8.001</td>
-<td>CROQUETAS CAO (20Kg)</td>
-<td style='background-color:#FFCCCC;'>LIDL</td>
-<td>15,49</td>
-<td>15,49</td>
-<td>23,00%</td>
-<td style='background-color:#FFCCCC; font-weight:bold;'>0,77</td>
-<td style='background-color:#FFCCCC; font-weight:bold;'>0,00</td>
-<td>1,000</td>
-<td>Unidade</td>
-<td>15,49</td>
-<td>PET FOOD</td>
-</tr>
-<tr>
-<td>E5.010</td>
-<td>CURCUMA (48 Grs)</td>
-<td style='background-color:#FFCCFF;'>AUCHAN</td>
-<td>1,76</td>
-<td>1,76</td>
-<td>10,00%</td>
-<td style='background-color:#FFCCFF; font-weight:bold;'>36,67</td>
-<td style='background-color:#FFCCFF; font-weight:bold;'>0,00</td>
-<td>1,000</td>
-<td>KILO</td>
-<td>1,76</td>
-<td>MERCEARIA</td>
-</tr>
-<tr>
-<td>M13.001</td>
-<td>DIM SUM CARNE GENGIBRE</td>
-<td style='background-color:#FFCCCC;'>LIDL</td>
-<td>1,99</td>
-<td>1,99</td>
-<td>23,00%</td>
-<td style='background-color:#FFCCCC; font-weight:bold;'>7,96</td>
-<td style='background-color:#FFCCCC; font-weight:bold;'>0,00</td>
-<td>1,000</td>
-<td>Unidade</td>
-<td>1,99</td>
-<td>PRATOS COZINHADOS</td>
-</tr>
-<tr>
-<td>N14.001</td>
-<td>ESPUMAS DOCES COM CHOCOLATE</td>
-<td style='background-color:#FFCCCC;'>LIDL</td>
-<td>3,49</td>
-<td>3,49</td>
-<td>23,00%</td>
-<td style='background-color:#FFCCCC; font-weight:bold;'>11,63</td>
-<td style='background-color:#FFCCCC; font-weight:bold;'>0,00</td>
-<td>1,000</td>
-<td>Unidade</td>
-<td>3,49</td>
-<td>DOCES</td>
-</tr>
-<tr>
-<td>B2.003</td>
-<td>FIAMBRE DA PA (300 Gr)</td>
-<td style='background-color:#FFCCFF;'>AUCHAN</td>
-<td>1,95</td>
-<td>2,41</td>
-<td>10,00%</td>
-<td style='background-color:#FFCCFF; font-weight:bold;'>6,50</td>
-<td style='background-color:#FFCCFF; font-weight:bold;'>0,00</td>
-<td>1,000</td>
-<td>Unidade</td>
-<td>2,41</td>
-<td>CHARCUTERIA</td>
-</tr>
-<tr>
-<td>B2.010</td>
-<td>FIAMBRE YORK (500Gr)</td>
-<td style='background-color:#FFCCCC;'>LIDL</td>
-<td>2,65</td>
-<td>2,65</td>
-<td>23,00%</td>
-<td style='background-color:#FFCCCC; font-weight:bold;'>5,30</td>
-<td style='background-color:#FFCCCC; font-weight:bold;'>0,00</td>
-<td>2,000</td>
-<td>Unidade</td>
-<td>1,33</td>
-<td>CHARCUTERIA</td>
-</tr>
-<tr>
-<td>O15.002</td>
-<td>FILETES DE PESCADA</td>
-<td style='background-color:#FFCCCC;'>LIDL</td>
-<td>5,24</td>
-<td>11,19</td>
-<td>6,00%</td>
-<td style='background-color:#FFCCCC; font-weight:bold;'>15,98</td>
-<td style='background-color:#FFCCCC; font-weight:bold;'>0,00</td>
-<td>0,328</td>
-<td>KILO</td>
-<td>34,12</td>
-<td>PEIXARIA</td>
-</tr>
-<tr>
-<td>A1.002</td>
-<td>FRANGO CHURRASCO</td>
-<td style='background-color:#F0D9FF;'>LECLERC</td>
-<td>6,20</td>
-<td>7,85</td>
-<td>13,00%</td>
-<td style='background-color:#F0D9FF; font-weight:bold;'>7,75</td>
-<td style='background-color:#F0D9FF; font-weight:bold;'>0,00</td>
-<td>1,000</td>
-<td>KILO</td>
-<td>7,85</td>
-<td>TALHO</td>
-</tr>
-<tr>
-<td>B2.009</td>
-<td>FROMAGE DE TETE</td>
-<td style='background-color:#FFCCFF;'>AUCHAN</td>
-<td>2,22</td>
-<td>2,44</td>
-<td>10,00%</td>
-<td style='background-color:#FFCCFF; font-weight:bold;'>9,87</td>
-<td style='background-color:#FFCCFF; font-weight:bold;'>0,00</td>
-<td>1,000</td>
-<td>KILO</td>
-<td>2,44</td>
-<td>CHARCUTERIA</td>
-</tr>
-<tr>
-<td>C3.004</td>
-<td>GIN NORDES (70 cl)</td>
-<td style='background-color:#FFCCFF;'>AUCHAN</td>
-<td>23,99</td>
-<td>23,99</td>
-<td>21,00%</td>
-<td style='background-color:#FFCCFF; font-weight:bold;'>0,00</td>
-<td style='background-color:#FFCCFF; font-weight:bold;'>34,27</td>
-<td>1,000</td>
-<td>Unidade</td>
-<td>23,99</td>
-<td>BEBIDAS ALCOOL</td>
-</tr>
-<tr>
-<td>V22.005</td>
-<td>GUARDANAPOS (300*300)  FT80</td>
-<td style='background-color:#FFD9F0;'>GHOST SUAVECEL</td>
-<td>0,70</td>
-<td>0,56</td>
-<td>23,00%</td>
-<td style='background-color:#FFD9F0; font-weight:bold;'>4,90</td>
-<td style='background-color:#FFD9F0; font-weight:bold;'>0.00</td>
-<td>1,000</td>
-<td>Unidade</td>
-<td>0,56</td>
-<td>PAPEL GUARDANAPOS</td>
-</tr>
-<tr>
-<td>V22.006</td>
-<td>GUARDANAPOS (380*380) FT 50</td>
-<td style='background-color:#FFD9F0;'>GHOST SUAVECEL</td>
-<td>1,00</td>
-<td>0,85</td>
-<td>23,00%</td>
-<td style='background-color:#FFD9F0; font-weight:bold;'>4,17</td>
-<td style='background-color:#FFD9F0; font-weight:bold;'>0.00</td>
-<td>1,000</td>
-<td>Unidade</td>
-<td>0,85</td>
-<td>PAPEL GUARDANAPOS</td>
-</tr>
-<tr>
-<td>A1.005</td>
-<td>JARDINEIRA DE NOVILHO</td>
-<td style='background-color:#FFCCCC;'>LIDL</td>
-<td>10,07</td>
-<td>11,99</td>
-<td>6,00%</td>
-<td style='background-color:#FFCCCC; font-weight:bold;'>11,99</td>
-<td style='background-color:#FFCCCC; font-weight:bold;'>0,00</td>
-<td>1,000</td>
-<td>KILO</td>
-<td>11,99</td>
-<td>TALHO</td>
-</tr>
-<tr>
-<td>H8.002</td>
-<td>KEYDOG 18Kg</td>
-<td style='background-color:#CCFFFF;'>GADIS</td>
-<td>12,99</td>
-<td>12,99</td>
-<td>21,00%</td>
-<td style='background-color:#CCFFFF; font-weight:bold;'>0,72</td>
-<td style='background-color:#CCFFFF; font-weight:bold;'>0,00</td>
-<td>1,000</td>
-<td>Unidade</td>
-<td>12,99</td>
-<td>PET FOOD</td>
-</tr>
-<tr>
-<td>F6.005</td>
-<td>LEITE CABRA (Mercadona)</td>
-<td style='background-color:#CCFFCC;'></td>
-<td>1,87</td>
-<td>0.00</td>
-<td>0.00</td>
-<td style='background-color:#CCFFCC; font-weight:bold;'>0,00</td>
-<td style='background-color:#CCFFCC; font-weight:bold;'>0,00</td>
-<td>0</td>
-<td>Unidade</td>
-<td>0.00</td>
-<td>PRODUTOS LACTEOS</td>
-</tr>
-<tr>
-<td>F6.001</td>
-<td>LEITE MAGRO S/LACTOSE</td>
-<td style='background-color:#CCFFCC;'></td>
-<td>1,05</td>
-<td>0.00</td>
-<td>0.00</td>
-<td style='background-color:#CCFFCC; font-weight:bold;'>0,00</td>
-<td style='background-color:#CCFFCC; font-weight:bold;'>1,05</td>
-<td>0</td>
-<td>Litros</td>
-<td>0.00</td>
-<td>PRODUTOS LACTEOS</td>
-</tr>
-<tr>
-<td>V22.002</td>
-<td>LENÇOS FACIAIS CAIXA 100</td>
-<td style='background-color:#FFD9F0;'>GHOST SUAVECEL</td>
-<td>0,78</td>
-<td>0,65</td>
-<td>23,00%</td>
-<td style='background-color:#FFD9F0; font-weight:bold;'>4,62</td>
-<td style='background-color:#FFD9F0; font-weight:bold;'>0,00</td>
-<td>1,000</td>
-<td>Pack 10</td>
-<td>0,65</td>
-<td>PAPEL GUARDANAPOS</td>
-</tr>
-<tr>
-<td>V22.004</td>
-<td>LENÇOS FACIAIS MINI (210*210) FT90</td>
-<td style='background-color:#FFD9F0;'>GHOST SUAVECEL</td>
-<td>0,70</td>
-<td>0,67</td>
-<td>23,00%</td>
-<td style='background-color:#FFD9F0; font-weight:bold;'>3,98</td>
-<td style='background-color:#FFD9F0; font-weight:bold;'>0,00</td>
-<td>2,000</td>
-<td>Pack 10</td>
-<td>0,33</td>
-<td>PAPEL GUARDANAPOS</td>
-</tr>
-<tr>
-<td>V22.001</td>
-<td>LENÇOS FACIAIS PRIME (215*198) FT56</td>
-<td style='background-color:#FFD9F0;'>GHOST SUAVECEL</td>
-<td>0,80</td>
-<td>0,76</td>
-<td>23,00%</td>
-<td style='background-color:#FFD9F0; font-weight:bold;'>5,52</td>
-<td style='background-color:#FFD9F0; font-weight:bold;'>0,00</td>
-<td>1,000</td>
-<td>Pack 10</td>
-<td>0,76</td>
-<td>PAPEL GUARDANAPOS</td>
-</tr>
-<tr>
-<td>V22.003</td>
-<td>LENÇOS FACIAIS PRIME MENTOL MINI (210*210) FT90</td>
-<td style='background-color:#FFD9F0;'>GHOST SUAVECEL</td>
-<td>1,00</td>
-<td>0,95</td>
-<td>23,00%</td>
-<td style='background-color:#FFD9F0; font-weight:bold;'>4,26</td>
-<td style='background-color:#FFD9F0; font-weight:bold;'>0,00</td>
-<td>1,000</td>
-<td>Pack 10</td>
-<td>0,95</td>
-<td>PAPEL GUARDANAPOS</td>
-</tr>
-<tr>
-<td>D4.003</td>
-<td>MAÇA GALA DE ALCOBAÇA</td>
-<td style='background-color:#FFCCCC;'>LIDL</td>
-<td>1,89</td>
-<td>1,89</td>
-<td>6,00%</td>
-<td style='background-color:#FFCCCC; font-weight:bold;'>1,89</td>
-<td style='background-color:#FFCCCC; font-weight:bold;'>0,00</td>
-<td>1,000</td>
-<td>KILO</td>
-<td>1,89</td>
-<td>FRUTAS E LEGUMES</td>
-</tr>
-<tr>
-<td>D4.002</td>
-<td>MAÇA GOLDEN (Saco 1,5 Kg)</td>
-<td style='background-color:#CCFFCC;'></td>
-<td>2,98</td>
-<td>0.00</td>
-<td>0.00</td>
-<td style='background-color:#CCFFCC; font-weight:bold;'>1,99</td>
-<td style='background-color:#CCFFCC; font-weight:bold;'>0,00</td>
-<td>0</td>
-<td>Unidade</td>
-<td>0.00</td>
-<td>FRUTAS E LEGUMES</td>
-</tr>
-<tr>
-<td>E5.006</td>
-<td>MAGGI MOLHO SOJA (20 CL)</td>
-<td style='background-color:#FFFFCC;'>PRIMAPRIX</td>
-<td>1,30</td>
-<td>1,30</td>
-<td>10,00%</td>
-<td style='background-color:#FFFFCC; font-weight:bold;'>0,00</td>
-<td style='background-color:#FFFFCC; font-weight:bold;'>6,50</td>
-<td>1,000</td>
-<td>Unidade</td>
-<td>1,30</td>
-<td>MERCEARIA</td>
-</tr>
-<tr>
-<td>F6.002</td>
-<td>MANTEIGA DOS AÇORES (250 Grs)</td>
-<td style='background-color:#FFCCCC;'>LIDL</td>
-<td>1,98</td>
-<td>1,98</td>
-<td>6,00%</td>
-<td style='background-color:#FFCCCC; font-weight:bold;'>7,92</td>
-<td style='background-color:#FFCCCC; font-weight:bold;'>0,00</td>
-<td>3,000</td>
-<td>Unidade</td>
-<td>0,66</td>
-<td>PRODUTOS LACTEOS</td>
-</tr>
-<tr>
-<td>F6.004</td>
-<td>MANTEIGA ILHA AZUL</td>
-<td style='background-color:#CCFFCC;'></td>
-<td>1,95</td>
-<td>0.00</td>
-<td>0.00</td>
-<td style='background-color:#CCFFCC; font-weight:bold;'>7,80</td>
-<td style='background-color:#CCFFCC; font-weight:bold;'>0,00</td>
-<td>0</td>
-<td>KILO</td>
-<td>0.00</td>
-<td>PRODUTOS LACTEOS</td>
-</tr>
-<tr>
-<td>F6.003</td>
-<td>MANTEIGA PRIMOR</td>
-<td style='background-color:#FFCCCC;'>LIDL</td>
-<td>1,95</td>
-<td>1,56</td>
-<td>6,00%</td>
-<td style='background-color:#FFCCCC; font-weight:bold;'>7,80</td>
-<td style='background-color:#FFCCCC; font-weight:bold;'>0,00</td>
-<td>1,000</td>
-<td>Unidade</td>
-<td>1,56</td>
-<td>PRODUTOS LACTEOS</td>
-</tr>
-<tr>
-<td>G7.002</td>
-<td>MEXILHOES MOLHO ESCABECHE</td>
-<td style='background-color:#FFCCFF;'>AUCHAN</td>
-<td>1,00</td>
-<td>1,00</td>
-<td>10,00%</td>
-<td style='background-color:#FFCCFF; font-weight:bold;'>9,01</td>
-<td style='background-color:#FFCCFF; font-weight:bold;'>0,00</td>
-<td>4,000</td>
-<td>Unidade</td>
-<td>0,25</td>
-<td>PRODUTOS EM CONSERVA</td>
-</tr>
-<tr>
-<td>G7.002</td>
-<td>MEXILHOES MOLHO ESCABECHE</td>
-<td style='background-color:#CCFFFF;'>GADIS</td>
-<td>1,00</td>
-<td>1,00</td>
-<td>21,00%</td>
-<td style='background-color:#CCFFFF; font-weight:bold;'>9,01</td>
-<td style='background-color:#CCFFFF; font-weight:bold;'>0,00</td>
-<td>4,000</td>
-<td>Unidade</td>
-<td>0,25</td>
-<td>PRODUTOS EM CONSERVA</td>
-</tr>
-<tr>
-<td>G7.003</td>
-<td>MEXILHOES MOLHO SALSA VIEIRA</td>
-<td style='background-color:#FFCCFF;'>AUCHAN</td>
-<td>1,35</td>
-<td>1,35</td>
-<td>10,00%</td>
-<td style='background-color:#FFCCFF; font-weight:bold;'>6,52</td>
-<td style='background-color:#FFCCFF; font-weight:bold;'>0,00</td>
-<td>2,000</td>
-<td>Unidade</td>
-<td>0,68</td>
-<td>PRODUTOS EM CONSERVA</td>
-</tr>
-<tr>
-<td>M13.002</td>
-<td>NEMS COM FRANGO (4 PEÇAS)</td>
-<td style='background-color:#F0D9FF;'>LECLERC</td>
-<td>2,29</td>
-<td>2,29</td>
-<td>23,00%</td>
-<td style='background-color:#F0D9FF; font-weight:bold;'>10,18</td>
-<td style='background-color:#F0D9FF; font-weight:bold;'>0,00</td>
-<td>1,000</td>
-<td>Unidade</td>
-<td>2,29</td>
-<td>PRATOS COZINHADOS</td>
-</tr>
-<tr>
-<td>L12.001</td>
-<td>NORDES</td>
-<td style='background-color:#CCFFCC;'></td>
-<td>9,50</td>
-<td>0.00</td>
-<td>0.00</td>
-<td style='background-color:#CCFFCC; font-weight:bold;'>0,00</td>
-<td style='background-color:#CCFFCC; font-weight:bold;'>38,00</td>
-<td>0</td>
-<td>Litros</td>
-<td>0.00</td>
-<td>BEBIDAS BAR</td>
-</tr>
-<tr>
-<td>E5.007</td>
-<td>PAO INTEGRAL</td>
-<td style='background-color:#F0D9FF;'>LECLERC</td>
-<td>0,92</td>
-<td>0,92</td>
-<td>6,00%</td>
-<td style='background-color:#F0D9FF; font-weight:bold;'>3,17</td>
-<td style='background-color:#F0D9FF; font-weight:bold;'>0,00</td>
-<td>1,000</td>
-<td>KILO</td>
-<td>0,92</td>
-<td>MERCEARIA</td>
-</tr>
-<tr>
-<td>E5.008</td>
-<td>PAO RUSTICO</td>
-<td style='background-color:#CCFFCC;'></td>
-<td>0,60</td>
-<td>0.00</td>
-<td>0.00</td>
-<td style='background-color:#CCFFCC; font-weight:bold;'>2,22</td>
-<td style='background-color:#CCFFCC; font-weight:bold;'>0,00</td>
-<td>0</td>
-<td>Unidade</td>
-<td>0.00</td>
-<td>MERCEARIA</td>
-</tr>
-<tr>
-<td>B2.011</td>
-<td>PAVO TRUFADO</td>
-<td style='background-color:#FFCCFF;'>AUCHAN</td>
-<td>1,51</td>
-<td>1,51</td>
-<td>10,00%</td>
-<td style='background-color:#FFCCFF; font-weight:bold;'>8,16</td>
-<td style='background-color:#FFCCFF; font-weight:bold;'>0,00</td>
-<td>1,000</td>
-<td>KILO</td>
-<td>1,51</td>
-<td>CHARCUTERIA</td>
-</tr>
-<tr>
-<td>A1.004</td>
-<td>PERNINHA DE FRANGO</td>
-<td style='background-color:#FFCCCC;'>LIDL</td>
-<td>4,98</td>
-<td>4,98</td>
-<td>6,00%</td>
-<td style='background-color:#FFCCCC; font-weight:bold;'>4,98</td>
-<td style='background-color:#FFCCCC; font-weight:bold;'>0,00</td>
-<td>1,000</td>
-<td>KILO</td>
-<td>4,98</td>
-<td>TALHO</td>
-</tr>
-<tr>
-<td>S19.001</td>
-<td>PILHAS Ref 399 </td>
-<td style='background-color:#CCFFCC;'></td>
-<td>7,25</td>
-<td>0.00</td>
-<td>0.00</td>
-<td style='background-color:#CCFFCC; font-weight:bold;'>0.00</td>
-<td style='background-color:#CCFFCC; font-weight:bold;'>0.00</td>
-<td>0</td>
-<td>Unidade</td>
-<td>0.00</td>
-<td>PILHAS RELOGIO</td>
-</tr>
-<tr>
-<td>E5.009</td>
-<td>PIMENTA CAYENA MOIDA (43 Grs)</td>
-<td style='background-color:#FFCCFF;'>AUCHAN</td>
-<td>1,77</td>
-<td>1,77</td>
-<td>4,00%</td>
-<td style='background-color:#FFCCFF; font-weight:bold;'>41,16</td>
-<td style='background-color:#FFCCFF; font-weight:bold;'>0,00</td>
-<td>1,000</td>
-<td>KILO</td>
-<td>1,77</td>
-<td>MERCEARIA</td>
-</tr>
-<tr>
-<td>T20.001</td>
-<td>PNEUS YOKOHAMA 175/65/14 R14</td>
-<td style='background-color:#CCFFCC;'></td>
-<td>72,50</td>
-<td>0.00</td>
-<td>0.00</td>
-<td style='background-color:#CCFFCC; font-weight:bold;'>0.00</td>
-<td style='background-color:#CCFFCC; font-weight:bold;'>0.00</td>
-<td>0</td>
-<td>Unidade</td>
-<td>0.00</td>
-<td>PNEUS C3</td>
-</tr>
-<tr>
-<td>F6.007</td>
-<td>QUEIJO FRANCES CLASSICO</td>
-<td style='background-color:#CCCCFF;'>MERCADONA PORTUGAL</td>
-<td>2,19</td>
-<td>2,19</td>
-<td>6,00%</td>
-<td style='background-color:#CCCCFF; font-weight:bold;'>10,95</td>
-<td style='background-color:#CCCCFF; font-weight:bold;'>0,00</td>
-<td>1,000</td>
-<td>Unidade</td>
-<td>2,19</td>
-<td>PRODUTOS LACTEOS</td>
-</tr>
-<tr>
-<td>F6.006</td>
-<td>QUEIJO TERRA NOSTRA 1/4 BOLA</td>
-<td style='background-color:#CCCCFF;'>MERCADONA PORTUGAL</td>
-<td>4,29</td>
-<td>4,29</td>
-<td>6,00%</td>
-<td style='background-color:#CCCCFF; font-weight:bold;'>12,26</td>
-<td style='background-color:#CCCCFF; font-weight:bold;'>0,00</td>
-<td>1,000</td>
-<td>Unidade</td>
-<td>4,29</td>
-<td>PRODUTOS LACTEOS</td>
-</tr>
-<tr>
-<td>G7.001</td>
-<td>REBENTOS DE SOJA (Bonduelle)</td>
-<td style='background-color:#FFCCFF;'>AUCHAN</td>
-<td>3,13</td>
-<td>3,13</td>
-<td>10,00%</td>
-<td style='background-color:#FFCCFF; font-weight:bold;'>11,59</td>
-<td style='background-color:#FFCCFF; font-weight:bold;'>0,00</td>
-<td>1,000</td>
-<td>Pack 3</td>
-<td>3,13</td>
-<td>PRODUTOS EM CONSERVA</td>
-</tr>
-<tr>
-<td>B2.006</td>
-<td>SALSICHA COKTAIL BACON (300 Grs)</td>
-<td style='background-color:#F0D9FF;'>LECLERC</td>
-<td>3,99</td>
-<td>3,99</td>
-<td>23,00%</td>
-<td style='background-color:#F0D9FF; font-weight:bold;'>13,30</td>
-<td style='background-color:#F0D9FF; font-weight:bold;'>0,00</td>
-<td>1,000</td>
-<td>Unidade</td>
-<td>3,99</td>
-<td>CHARCUTERIA</td>
-</tr>
-<tr>
-<td>B2.008</td>
-<td>TOCO MAO FUMADO AVECAR KG</td>
-<td style='background-color:#F0D9FF;'>LECLERC</td>
-<td>6,64</td>
-<td>6,64</td>
-<td>23,00%</td>
-<td style='background-color:#F0D9FF; font-weight:bold;'>6,99</td>
-<td style='background-color:#F0D9FF; font-weight:bold;'>0,00</td>
-<td>1,000</td>
-<td>KILO</td>
-<td>6,64</td>
-<td>CHARCUTERIA</td>
-</tr>
-<tr>
-<td>D4.006</td>
-<td>TOMATES</td>
-<td style='background-color:#CCFFCC;'></td>
-<td>2,49</td>
-<td>0.00</td>
-<td>0.00</td>
-<td style='background-color:#CCFFCC; font-weight:bold;'>2,49</td>
-<td style='background-color:#CCFFCC; font-weight:bold;'>0,00</td>
-<td>0</td>
-<td>KILO</td>
-<td>0.00</td>
-<td>FRUTAS E LEGUMES</td>
+<td data-label='Código'>Q17.001</td>
+<td data-label='Artigo'>AGUA COM GAS (25 CL)</td>
+<td data-label='Fornecedor' style='background-color:#FFCCCC;'>LIDL</td>
+<td data-label='Preço Artigo'>1,39</td>
+<td data-label='Preço Últ Compra'>1,39</td>
+<td data-label='IVA'>13,00%</td>
+<td data-label='Preço Kg' style='background-color:#FFCCCC; font-weight:bold;'>0,00</td>
+<td data-label='Preço Litro' style='background-color:#FFCCCC; font-weight:bold;'>0,93</td>
+<td data-label='Qtd'>1,000</td>
+<td data-label='Unidade'>Pack 6</td>
+<td data-label='Preço Unitário'>1,39</td>
+<td data-label='SubFamilia'>BEBIDAS SUMOS</td>
+</tr>
+<tr>
+<td data-label='Código'>Q17.002</td>
+<td data-label='Artigo'>AGUA TONICA REGULAR (33 Cl)</td>
+<td data-label='Fornecedor' style='background-color:#FFCCCC;'>LIDL</td>
+<td data-label='Preço Artigo'>0,49</td>
+<td data-label='Preço Últ Compra'>0,49</td>
+<td data-label='IVA'>23,00%</td>
+<td data-label='Preço Kg' style='background-color:#FFCCCC; font-weight:bold;'>0,00</td>
+<td data-label='Preço Litro' style='background-color:#FFCCCC; font-weight:bold;'>1,48</td>
+<td data-label='Qtd'>8,000</td>
+<td data-label='Unidade'>Unidade</td>
+<td data-label='Preço Unitário'>0,06</td>
+<td data-label='SubFamilia'>BEBIDAS SUMOS</td>
+</tr>
+<tr>
+<td data-label='Código'>D4.001</td>
+<td data-label='Artigo'>ALHO FRANCES (400 Gr)</td>
+<td data-label='Fornecedor' style='background-color:#FFCCCC;'>LIDL</td>
+<td data-label='Preço Artigo'>1,89</td>
+<td data-label='Preço Últ Compra'>1,49</td>
+<td data-label='IVA'>6,00%</td>
+<td data-label='Preço Kg' style='background-color:#FFCCCC; font-weight:bold;'>4,73</td>
+<td data-label='Preço Litro' style='background-color:#FFCCCC; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>1,000</td>
+<td data-label='Unidade'>Unidade</td>
+<td data-label='Preço Unitário'>1,49</td>
+<td data-label='SubFamilia'>FRUTAS E LEGUMES</td>
+</tr>
+<tr>
+<td data-label='Código'>R18.001</td>
+<td data-label='Artigo'>AMACIADOR AZUL</td>
+<td data-label='Fornecedor' style='background-color:#CCFFCC;'></td>
+<td data-label='Preço Artigo'>2,20</td>
+<td data-label='Preço Últ Compra'>0.00</td>
+<td data-label='IVA'>0.00</td>
+<td data-label='Preço Kg' style='background-color:#CCFFCC; font-weight:bold;'>0,00</td>
+<td data-label='Preço Litro' style='background-color:#CCFFCC; font-weight:bold;'>1,10</td>
+<td data-label='Qtd'>0</td>
+<td data-label='Unidade'>Unidade</td>
+<td data-label='Preço Unitário'>0.00</td>
+<td data-label='SubFamilia'>DETERGENTES</td>
+</tr>
+<tr>
+<td data-label='Código'>E5.003</td>
+<td data-label='Artigo'>ARROZ BASMATI HACENDADO</td>
+<td data-label='Fornecedor' style='background-color:#CCFFCC;'></td>
+<td data-label='Preço Artigo'>2,00</td>
+<td data-label='Preço Últ Compra'>0.00</td>
+<td data-label='IVA'>0.00</td>
+<td data-label='Preço Kg' style='background-color:#CCFFCC; font-weight:bold;'>2,00</td>
+<td data-label='Preço Litro' style='background-color:#CCFFCC; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>0</td>
+<td data-label='Unidade'>KILO</td>
+<td data-label='Preço Unitário'>0.00</td>
+<td data-label='SubFamilia'>MERCEARIA</td>
+</tr>
+<tr>
+<td data-label='Código'>E5.002</td>
+<td data-label='Artigo'>ARROZ VAPORIZADO HACENDADO</td>
+<td data-label='Fornecedor' style='background-color:#CCFFCC;'></td>
+<td data-label='Preço Artigo'>1,35</td>
+<td data-label='Preço Últ Compra'>0.00</td>
+<td data-label='IVA'>0.00</td>
+<td data-label='Preço Kg' style='background-color:#CCFFCC; font-weight:bold;'>1,35</td>
+<td data-label='Preço Litro' style='background-color:#CCFFCC; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>0</td>
+<td data-label='Unidade'>KILO</td>
+<td data-label='Preço Unitário'>0.00</td>
+<td data-label='SubFamilia'>MERCEARIA</td>
+</tr>
+<tr>
+<td data-label='Código'>E5.001</td>
+<td data-label='Artigo'>AZEITE </td>
+<td data-label='Fornecedor' style='background-color:#CCFFCC;'></td>
+<td data-label='Preço Artigo'>4,35</td>
+<td data-label='Preço Últ Compra'>0.00</td>
+<td data-label='IVA'>0.00</td>
+<td data-label='Preço Kg' style='background-color:#CCFFCC; font-weight:bold;'>0,00</td>
+<td data-label='Preço Litro' style='background-color:#CCFFCC; font-weight:bold;'>5,80</td>
+<td data-label='Qtd'>0</td>
+<td data-label='Unidade'>Unidade</td>
+<td data-label='Preço Unitário'>0.00</td>
+<td data-label='SubFamilia'>MERCEARIA</td>
+</tr>
+<tr>
+<td data-label='Código'>O15.001</td>
+<td data-label='Artigo'>BACALHAU GRAUDO</td>
+<td data-label='Fornecedor' style='background-color:#FFCCCC;'>LIDL</td>
+<td data-label='Preço Artigo'>28,54</td>
+<td data-label='Preço Últ Compra'>28,54</td>
+<td data-label='IVA'>6,00%</td>
+<td data-label='Preço Kg' style='background-color:#FFCCCC; font-weight:bold;'>13,99</td>
+<td data-label='Preço Litro' style='background-color:#FFCCCC; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>1,000</td>
+<td data-label='Unidade'>KILO</td>
+<td data-label='Preço Unitário'>28,54</td>
+<td data-label='SubFamilia'>PEIXARIA</td>
+</tr>
+<tr>
+<td data-label='Código'>B2.001</td>
+<td data-label='Artigo'>BACON EM PEDACOS (200 Gr)</td>
+<td data-label='Fornecedor' style='background-color:#FFCCCC;'>LIDL</td>
+<td data-label='Preço Artigo'>2,19</td>
+<td data-label='Preço Últ Compra'>2,19</td>
+<td data-label='IVA'>23,00%</td>
+<td data-label='Preço Kg' style='background-color:#FFCCCC; font-weight:bold;'>10,95</td>
+<td data-label='Preço Litro' style='background-color:#FFCCCC; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>2,000</td>
+<td data-label='Unidade'>Unidade</td>
+<td data-label='Preço Unitário'>1,10</td>
+<td data-label='SubFamilia'>CHARCUTERIA</td>
+</tr>
+<tr>
+<td data-label='Código'>B2.012</td>
+<td data-label='Artigo'>BACON FATIADO (200 Grs)</td>
+<td data-label='Fornecedor' style='background-color:#FFCCCC;'>LIDL</td>
+<td data-label='Preço Artigo'>2,39</td>
+<td data-label='Preço Últ Compra'>2,39</td>
+<td data-label='IVA'>23,00%</td>
+<td data-label='Preço Kg' style='background-color:#FFCCCC; font-weight:bold;'>11,95</td>
+<td data-label='Preço Litro' style='background-color:#FFCCCC; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>1,000</td>
+<td data-label='Unidade'>Unidade</td>
+<td data-label='Preço Unitário'>2,39</td>
+<td data-label='SubFamilia'>CHARCUTERIA</td>
+</tr>
+<tr>
+<td data-label='Código'>B2.002</td>
+<td data-label='Artigo'>BACON FATIADO (300 Gr)</td>
+<td data-label='Fornecedor' style='background-color:#FFCCCC;'>LIDL</td>
+<td data-label='Preço Artigo'>3,09</td>
+<td data-label='Preço Últ Compra'>3,09</td>
+<td data-label='IVA'>23,00%</td>
+<td data-label='Preço Kg' style='background-color:#FFCCCC; font-weight:bold;'>10,30</td>
+<td data-label='Preço Litro' style='background-color:#FFCCCC; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>1,000</td>
+<td data-label='Unidade'>Unidade</td>
+<td data-label='Preço Unitário'>3,09</td>
+<td data-label='SubFamilia'>CHARCUTERIA</td>
+</tr>
+<tr>
+<td data-label='Código'>M13.003</td>
+<td data-label='Artigo'>BATATAS FRITAS LISA GOURMET (180Grs)</td>
+<td data-label='Fornecedor' style='background-color:#FFCCCC;'>LIDL</td>
+<td data-label='Preço Artigo'>1,45</td>
+<td data-label='Preço Últ Compra'>1,45</td>
+<td data-label='IVA'>23,00%</td>
+<td data-label='Preço Kg' style='background-color:#FFCCCC; font-weight:bold;'>8,06</td>
+<td data-label='Preço Litro' style='background-color:#FFCCCC; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>2,000</td>
+<td data-label='Unidade'>Unidade</td>
+<td data-label='Preço Unitário'>0,73</td>
+<td data-label='SubFamilia'>PRATOS COZINHADOS</td>
+</tr>
+<tr>
+<td data-label='Código'>A1.001</td>
+<td data-label='Artigo'>BIFE DE NOVILHO</td>
+<td data-label='Fornecedor' style='background-color:#CCFFCC;'></td>
+<td data-label='Preço Artigo'>7,86</td>
+<td data-label='Preço Últ Compra'>0.00</td>
+<td data-label='IVA'>0.00</td>
+<td data-label='Preço Kg' style='background-color:#CCFFCC; font-weight:bold;'>13,10</td>
+<td data-label='Preço Litro' style='background-color:#CCFFCC; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>0</td>
+<td data-label='Unidade'>Unidade</td>
+<td data-label='Preço Unitário'>0.00</td>
+<td data-label='SubFamilia'>TALHO</td>
+</tr>
+<tr>
+<td data-label='Código'>C3.003</td>
+<td data-label='Artigo'>BLUE MOSCATO (Mercadona)</td>
+<td data-label='Fornecedor' style='background-color:#CCCCFF;'>MERCADONA PORTUGAL</td>
+<td data-label='Preço Artigo'>2,20</td>
+<td data-label='Preço Últ Compra'>2,19</td>
+<td data-label='IVA'>23,00%</td>
+<td data-label='Preço Kg' style='background-color:#CCCCFF; font-weight:bold;'>0,00</td>
+<td data-label='Preço Litro' style='background-color:#CCCCFF; font-weight:bold;'>2,93</td>
+<td data-label='Qtd'>1,000</td>
+<td data-label='Unidade'>Unidade</td>
+<td data-label='Preço Unitário'>2,19</td>
+<td data-label='SubFamilia'>BEBIDAS ALCOOL</td>
+</tr>
+<tr>
+<td data-label='Código'>D4.005</td>
+<td data-label='Artigo'>BROCOLOS</td>
+<td data-label='Fornecedor' style='background-color:#FFCCCC;'>LIDL</td>
+<td data-label='Preço Artigo'>1,15</td>
+<td data-label='Preço Últ Compra'>1,89</td>
+<td data-label='IVA'>6,00%</td>
+<td data-label='Preço Kg' style='background-color:#FFCCCC; font-weight:bold;'>2,30</td>
+<td data-label='Preço Litro' style='background-color:#FFCCCC; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>0,000</td>
+<td data-label='Unidade'>KILO</td>
+<td data-label='Preço Unitário'>0.00</td>
+<td data-label='SubFamilia'>FRUTAS E LEGUMES</td>
+</tr>
+<tr>
+<td data-label='Código'>E5.005</td>
+<td data-label='Artigo'>CAFE CAPSULA  EXTRAFORTE (104 Gr)</td>
+<td data-label='Fornecedor' style='background-color:#CCFFCC;'></td>
+<td data-label='Preço Artigo'>3,65</td>
+<td data-label='Preço Últ Compra'>0.00</td>
+<td data-label='IVA'>0.00</td>
+<td data-label='Preço Kg' style='background-color:#CCFFCC; font-weight:bold;'>35,10</td>
+<td data-label='Preço Litro' style='background-color:#CCFFCC; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>0</td>
+<td data-label='Unidade'>Unidade</td>
+<td data-label='Preço Unitário'>0.00</td>
+<td data-label='SubFamilia'>MERCEARIA</td>
+</tr>
+<tr>
+<td data-label='Código'>E5.004</td>
+<td data-label='Artigo'>CAFE CAPSULA RISTRETO (106 Gr)</td>
+<td data-label='Fornecedor' style='background-color:#CCFFCC;'></td>
+<td data-label='Preço Artigo'>4,35</td>
+<td data-label='Preço Últ Compra'>0.00</td>
+<td data-label='IVA'>0.00</td>
+<td data-label='Preço Kg' style='background-color:#CCFFCC; font-weight:bold;'>41,04</td>
+<td data-label='Preço Litro' style='background-color:#CCFFCC; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>0</td>
+<td data-label='Unidade'>KILO</td>
+<td data-label='Preço Unitário'>0.00</td>
+<td data-label='SubFamilia'>MERCEARIA</td>
+</tr>
+<tr>
+<td data-label='Código'>F7.008</td>
+<td data-label='Artigo'>CAMENBERT PRESIDENT (250Grs)</td>
+<td data-label='Fornecedor' style='background-color:#FFFFCC;'>PRIMAPRIX</td>
+<td data-label='Preço Artigo'>2,95</td>
+<td data-label='Preço Últ Compra'>2,95</td>
+<td data-label='IVA'>4,00%</td>
+<td data-label='Preço Kg' style='background-color:#FFFFCC; font-weight:bold;'>11,80</td>
+<td data-label='Preço Litro' style='background-color:#FFFFCC; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>1,000</td>
+<td data-label='Unidade'>Unidade</td>
+<td data-label='Preço Unitário'>2,95</td>
+<td data-label='SubFamilia'>PRODUTOS LACTEOS</td>
+</tr>
+<tr>
+<td data-label='Código'>D4.004</td>
+<td data-label='Artigo'>CENOURA</td>
+<td data-label='Fornecedor' style='background-color:#FFCCCC;'>LIDL</td>
+<td data-label='Preço Artigo'>0,79</td>
+<td data-label='Preço Últ Compra'>0,79</td>
+<td data-label='IVA'>6,00%</td>
+<td data-label='Preço Kg' style='background-color:#FFCCCC; font-weight:bold;'>0,79</td>
+<td data-label='Preço Litro' style='background-color:#FFCCCC; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>1,000</td>
+<td data-label='Unidade'>KILO</td>
+<td data-label='Preço Unitário'>0,79</td>
+<td data-label='SubFamilia'>FRUTAS E LEGUMES</td>
+</tr>
+<tr>
+<td data-label='Código'>C3.001</td>
+<td data-label='Artigo'>CERVEJA 1906 ( 33 cl )</td>
+<td data-label='Fornecedor' style='background-color:#FFCCFF;'>AUCHAN</td>
+<td data-label='Preço Artigo'>7,32</td>
+<td data-label='Preço Últ Compra'>4,77</td>
+<td data-label='IVA'>23,00%</td>
+<td data-label='Preço Kg' style='background-color:#FFCCFF; font-weight:bold;'>0,00</td>
+<td data-label='Preço Litro' style='background-color:#FFCCFF; font-weight:bold;'>3,70</td>
+<td data-label='Qtd'>3,000</td>
+<td data-label='Unidade'>Pack 6</td>
+<td data-label='Preço Unitário'>1,59</td>
+<td data-label='SubFamilia'>BEBIDAS ALCOOL</td>
+</tr>
+<tr>
+<td data-label='Código'>C3.002</td>
+<td data-label='Artigo'>CERVEJA SAGRES (33 cl)</td>
+<td data-label='Fornecedor' style='background-color:#CCFFCC;'></td>
+<td data-label='Preço Artigo'>0,59</td>
+<td data-label='Preço Últ Compra'>0.00</td>
+<td data-label='IVA'>0.00</td>
+<td data-label='Preço Kg' style='background-color:#CCFFCC; font-weight:bold;'>0,00</td>
+<td data-label='Preço Litro' style='background-color:#CCFFCC; font-weight:bold;'>1,79</td>
+<td data-label='Qtd'>0</td>
+<td data-label='Unidade'>Unidade</td>
+<td data-label='Preço Unitário'>0.00</td>
+<td data-label='SubFamilia'>BEBIDAS ALCOOL</td>
+</tr>
+<tr>
+<td data-label='Código'>N14.002</td>
+<td data-label='Artigo'>CHOCOLATE NEGRO LARANJA (100 Grs)</td>
+<td data-label='Fornecedor' style='background-color:#CCFFFF;'>GADIS</td>
+<td data-label='Preço Artigo'>1,85</td>
+<td data-label='Preço Últ Compra'>1,85</td>
+<td data-label='IVA'>21,00%</td>
+<td data-label='Preço Kg' style='background-color:#CCFFFF; font-weight:bold;'>18,50</td>
+<td data-label='Preço Litro' style='background-color:#CCFFFF; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>1,000</td>
+<td data-label='Unidade'>Unidade</td>
+<td data-label='Preço Unitário'>1,85</td>
+<td data-label='SubFamilia'>DOCES</td>
+</tr>
+<tr>
+<td data-label='Código'>B2.007</td>
+<td data-label='Artigo'>CHOUCROUTE KG</td>
+<td data-label='Fornecedor' style='background-color:#F0D9FF;'>LECLERC</td>
+<td data-label='Preço Artigo'>5,99</td>
+<td data-label='Preço Últ Compra'>5,99</td>
+<td data-label='IVA'>13,00%</td>
+<td data-label='Preço Kg' style='background-color:#F0D9FF; font-weight:bold;'>11,01</td>
+<td data-label='Preço Litro' style='background-color:#F0D9FF; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>1,000</td>
+<td data-label='Unidade'>KILO</td>
+<td data-label='Preço Unitário'>5,99</td>
+<td data-label='SubFamilia'>CHARCUTERIA</td>
+</tr>
+<tr>
+<td data-label='Código'>B2.005</td>
+<td data-label='Artigo'>CHOURIÇA DE CEBOLA</td>
+<td data-label='Fornecedor' style='background-color:#D9F0FF;'>DIVERSOS </td>
+<td data-label='Preço Artigo'>6,65</td>
+<td data-label='Preço Últ Compra'>6,65</td>
+<td data-label='IVA'>7,00%</td>
+<td data-label='Preço Kg' style='background-color:#D9F0FF; font-weight:bold;'>10,90</td>
+<td data-label='Preço Litro' style='background-color:#D9F0FF; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>1,000</td>
+<td data-label='Unidade'>KILO</td>
+<td data-label='Preço Unitário'>6,65</td>
+<td data-label='SubFamilia'>CHARCUTERIA</td>
+</tr>
+<tr>
+<td data-label='Código'>B2.004</td>
+<td data-label='Artigo'>CHOURICO DE CARNE</td>
+<td data-label='Fornecedor' style='background-color:#D9F0FF;'>DIVERSOS </td>
+<td data-label='Preço Artigo'>2,50</td>
+<td data-label='Preço Últ Compra'>10,00</td>
+<td data-label='IVA'>6,00%</td>
+<td data-label='Preço Kg' style='background-color:#D9F0FF; font-weight:bold;'>10,00</td>
+<td data-label='Preço Litro' style='background-color:#D9F0FF; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>1,000</td>
+<td data-label='Unidade'>KILO</td>
+<td data-label='Preço Unitário'>10,00</td>
+<td data-label='SubFamilia'>CHARCUTERIA</td>
+</tr>
+<tr>
+<td data-label='Código'>G7.006</td>
+<td data-label='Artigo'>COGUMELOS LAMINADOS (180 Grs)</td>
+<td data-label='Fornecedor' style='background-color:#CCFFCC;'></td>
+<td data-label='Preço Artigo'>1,35</td>
+<td data-label='Preço Últ Compra'>0.00</td>
+<td data-label='IVA'>0.00</td>
+<td data-label='Preço Kg' style='background-color:#CCFFCC; font-weight:bold;'>7,50</td>
+<td data-label='Preço Litro' style='background-color:#CCFFCC; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>0</td>
+<td data-label='Unidade'>Unidade</td>
+<td data-label='Preço Unitário'>0.00</td>
+<td data-label='SubFamilia'>PRODUTOS EM CONSERVA</td>
+</tr>
+<tr>
+<td data-label='Código'>G7.005</td>
+<td data-label='Artigo'>COGUMELOS LAMINADOS (185 Grs)</td>
+<td data-label='Fornecedor' style='background-color:#FFCCFF;'>AUCHAN</td>
+<td data-label='Preço Artigo'>1,02</td>
+<td data-label='Preço Últ Compra'>1,02</td>
+<td data-label='IVA'>10,00%</td>
+<td data-label='Preço Kg' style='background-color:#FFCCFF; font-weight:bold;'>5,51</td>
+<td data-label='Preço Litro' style='background-color:#FFCCFF; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>3,000</td>
+<td data-label='Unidade'>Unidade</td>
+<td data-label='Preço Unitário'>0,34</td>
+<td data-label='SubFamilia'>PRODUTOS EM CONSERVA</td>
+</tr>
+<tr>
+<td data-label='Código'>G7.007</td>
+<td data-label='Artigo'>COGUMELOS LAMINADOS (230 Grs)</td>
+<td data-label='Fornecedor' style='background-color:#CCFFCC;'></td>
+<td data-label='Preço Artigo'>1,25</td>
+<td data-label='Preço Últ Compra'>0.00</td>
+<td data-label='IVA'>0.00</td>
+<td data-label='Preço Kg' style='background-color:#CCFFCC; font-weight:bold;'>5,43</td>
+<td data-label='Preço Litro' style='background-color:#CCFFCC; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>0</td>
+<td data-label='Unidade'>Unidade</td>
+<td data-label='Preço Unitário'>0.00</td>
+<td data-label='SubFamilia'>PRODUTOS EM CONSERVA</td>
+</tr>
+<tr>
+<td data-label='Código'>G7.004</td>
+<td data-label='Artigo'>COGUMELOS SETAS Surtido</td>
+<td data-label='Fornecedor' style='background-color:#FFCCFF;'>AUCHAN</td>
+<td data-label='Preço Artigo'>2,99</td>
+<td data-label='Preço Últ Compra'>2,99</td>
+<td data-label='IVA'>10,00%</td>
+<td data-label='Preço Kg' style='background-color:#FFCCFF; font-weight:bold;'>7,97</td>
+<td data-label='Preço Litro' style='background-color:#FFCCFF; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>1,000</td>
+<td data-label='Unidade'>Unidade</td>
+<td data-label='Preço Unitário'>2,99</td>
+<td data-label='SubFamilia'>PRODUTOS EM CONSERVA</td>
+</tr>
+<tr>
+<td data-label='Código'>A1.003</td>
+<td data-label='Artigo'>COXA DE FRANGO</td>
+<td data-label='Fornecedor' style='background-color:#FFCCCC;'>LIDL</td>
+<td data-label='Preço Artigo'>5,69</td>
+<td data-label='Preço Últ Compra'>4,99</td>
+<td data-label='IVA'>6,00%</td>
+<td data-label='Preço Kg' style='background-color:#FFCCCC; font-weight:bold;'>4,99</td>
+<td data-label='Preço Litro' style='background-color:#FFCCCC; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>1,000</td>
+<td data-label='Unidade'>KILO</td>
+<td data-label='Preço Unitário'>4,99</td>
+<td data-label='SubFamilia'>TALHO</td>
+</tr>
+<tr>
+<td data-label='Código'>H8.001</td>
+<td data-label='Artigo'>CROQUETAS CAO (20Kg)</td>
+<td data-label='Fornecedor' style='background-color:#FFCCCC;'>LIDL</td>
+<td data-label='Preço Artigo'>15,49</td>
+<td data-label='Preço Últ Compra'>15,49</td>
+<td data-label='IVA'>23,00%</td>
+<td data-label='Preço Kg' style='background-color:#FFCCCC; font-weight:bold;'>0,77</td>
+<td data-label='Preço Litro' style='background-color:#FFCCCC; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>1,000</td>
+<td data-label='Unidade'>Unidade</td>
+<td data-label='Preço Unitário'>15,49</td>
+<td data-label='SubFamilia'>PET FOOD</td>
+</tr>
+<tr>
+<td data-label='Código'>E5.010</td>
+<td data-label='Artigo'>CURCUMA (48 Grs)</td>
+<td data-label='Fornecedor' style='background-color:#FFCCFF;'>AUCHAN</td>
+<td data-label='Preço Artigo'>1,76</td>
+<td data-label='Preço Últ Compra'>1,76</td>
+<td data-label='IVA'>10,00%</td>
+<td data-label='Preço Kg' style='background-color:#FFCCFF; font-weight:bold;'>36,67</td>
+<td data-label='Preço Litro' style='background-color:#FFCCFF; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>1,000</td>
+<td data-label='Unidade'>KILO</td>
+<td data-label='Preço Unitário'>1,76</td>
+<td data-label='SubFamilia'>MERCEARIA</td>
+</tr>
+<tr>
+<td data-label='Código'>M13.001</td>
+<td data-label='Artigo'>DIM SUM CARNE GENGIBRE</td>
+<td data-label='Fornecedor' style='background-color:#FFCCCC;'>LIDL</td>
+<td data-label='Preço Artigo'>1,99</td>
+<td data-label='Preço Últ Compra'>1,99</td>
+<td data-label='IVA'>23,00%</td>
+<td data-label='Preço Kg' style='background-color:#FFCCCC; font-weight:bold;'>7,96</td>
+<td data-label='Preço Litro' style='background-color:#FFCCCC; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>1,000</td>
+<td data-label='Unidade'>Unidade</td>
+<td data-label='Preço Unitário'>1,99</td>
+<td data-label='SubFamilia'>PRATOS COZINHADOS</td>
+</tr>
+<tr>
+<td data-label='Código'>N14.001</td>
+<td data-label='Artigo'>ESPUMAS DOCES COM CHOCOLATE</td>
+<td data-label='Fornecedor' style='background-color:#FFCCCC;'>LIDL</td>
+<td data-label='Preço Artigo'>3,49</td>
+<td data-label='Preço Últ Compra'>3,49</td>
+<td data-label='IVA'>23,00%</td>
+<td data-label='Preço Kg' style='background-color:#FFCCCC; font-weight:bold;'>11,63</td>
+<td data-label='Preço Litro' style='background-color:#FFCCCC; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>1,000</td>
+<td data-label='Unidade'>Unidade</td>
+<td data-label='Preço Unitário'>3,49</td>
+<td data-label='SubFamilia'>DOCES</td>
+</tr>
+<tr>
+<td data-label='Código'>B2.003</td>
+<td data-label='Artigo'>FIAMBRE DA PA (300 Gr)</td>
+<td data-label='Fornecedor' style='background-color:#FFCCFF;'>AUCHAN</td>
+<td data-label='Preço Artigo'>1,95</td>
+<td data-label='Preço Últ Compra'>2,41</td>
+<td data-label='IVA'>10,00%</td>
+<td data-label='Preço Kg' style='background-color:#FFCCFF; font-weight:bold;'>6,50</td>
+<td data-label='Preço Litro' style='background-color:#FFCCFF; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>1,000</td>
+<td data-label='Unidade'>Unidade</td>
+<td data-label='Preço Unitário'>2,41</td>
+<td data-label='SubFamilia'>CHARCUTERIA</td>
+</tr>
+<tr>
+<td data-label='Código'>B2.010</td>
+<td data-label='Artigo'>FIAMBRE YORK (500Gr)</td>
+<td data-label='Fornecedor' style='background-color:#FFCCCC;'>LIDL</td>
+<td data-label='Preço Artigo'>2,65</td>
+<td data-label='Preço Últ Compra'>2,65</td>
+<td data-label='IVA'>23,00%</td>
+<td data-label='Preço Kg' style='background-color:#FFCCCC; font-weight:bold;'>5,30</td>
+<td data-label='Preço Litro' style='background-color:#FFCCCC; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>2,000</td>
+<td data-label='Unidade'>Unidade</td>
+<td data-label='Preço Unitário'>1,33</td>
+<td data-label='SubFamilia'>CHARCUTERIA</td>
+</tr>
+<tr>
+<td data-label='Código'>O15.002</td>
+<td data-label='Artigo'>FILETES DE PESCADA</td>
+<td data-label='Fornecedor' style='background-color:#FFCCCC;'>LIDL</td>
+<td data-label='Preço Artigo'>5,24</td>
+<td data-label='Preço Últ Compra'>11,19</td>
+<td data-label='IVA'>6,00%</td>
+<td data-label='Preço Kg' style='background-color:#FFCCCC; font-weight:bold;'>15,98</td>
+<td data-label='Preço Litro' style='background-color:#FFCCCC; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>0,328</td>
+<td data-label='Unidade'>KILO</td>
+<td data-label='Preço Unitário'>34,12</td>
+<td data-label='SubFamilia'>PEIXARIA</td>
+</tr>
+<tr>
+<td data-label='Código'>A1.002</td>
+<td data-label='Artigo'>FRANGO CHURRASCO</td>
+<td data-label='Fornecedor' style='background-color:#F0D9FF;'>LECLERC</td>
+<td data-label='Preço Artigo'>6,20</td>
+<td data-label='Preço Últ Compra'>7,85</td>
+<td data-label='IVA'>13,00%</td>
+<td data-label='Preço Kg' style='background-color:#F0D9FF; font-weight:bold;'>7,75</td>
+<td data-label='Preço Litro' style='background-color:#F0D9FF; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>1,000</td>
+<td data-label='Unidade'>KILO</td>
+<td data-label='Preço Unitário'>7,85</td>
+<td data-label='SubFamilia'>TALHO</td>
+</tr>
+<tr>
+<td data-label='Código'>B2.009</td>
+<td data-label='Artigo'>FROMAGE DE TETE</td>
+<td data-label='Fornecedor' style='background-color:#FFCCFF;'>AUCHAN</td>
+<td data-label='Preço Artigo'>2,22</td>
+<td data-label='Preço Últ Compra'>2,44</td>
+<td data-label='IVA'>10,00%</td>
+<td data-label='Preço Kg' style='background-color:#FFCCFF; font-weight:bold;'>9,87</td>
+<td data-label='Preço Litro' style='background-color:#FFCCFF; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>1,000</td>
+<td data-label='Unidade'>KILO</td>
+<td data-label='Preço Unitário'>2,44</td>
+<td data-label='SubFamilia'>CHARCUTERIA</td>
+</tr>
+<tr>
+<td data-label='Código'>C3.004</td>
+<td data-label='Artigo'>GIN NORDES (70 cl)</td>
+<td data-label='Fornecedor' style='background-color:#FFCCFF;'>AUCHAN</td>
+<td data-label='Preço Artigo'>23,99</td>
+<td data-label='Preço Últ Compra'>23,99</td>
+<td data-label='IVA'>21,00%</td>
+<td data-label='Preço Kg' style='background-color:#FFCCFF; font-weight:bold;'>0,00</td>
+<td data-label='Preço Litro' style='background-color:#FFCCFF; font-weight:bold;'>34,27</td>
+<td data-label='Qtd'>1,000</td>
+<td data-label='Unidade'>Unidade</td>
+<td data-label='Preço Unitário'>23,99</td>
+<td data-label='SubFamilia'>BEBIDAS ALCOOL</td>
+</tr>
+<tr>
+<td data-label='Código'>V22.005</td>
+<td data-label='Artigo'>GUARDANAPOS (300*300)  FT80</td>
+<td data-label='Fornecedor' style='background-color:#FFD9F0;'>GHOST SUAVECEL</td>
+<td data-label='Preço Artigo'>0,70</td>
+<td data-label='Preço Últ Compra'>0,56</td>
+<td data-label='IVA'>23,00%</td>
+<td data-label='Preço Kg' style='background-color:#FFD9F0; font-weight:bold;'>4,90</td>
+<td data-label='Preço Litro' style='background-color:#FFD9F0; font-weight:bold;'>0.00</td>
+<td data-label='Qtd'>1,000</td>
+<td data-label='Unidade'>Unidade</td>
+<td data-label='Preço Unitário'>0,56</td>
+<td data-label='SubFamilia'>PAPEL GUARDANAPOS</td>
+</tr>
+<tr>
+<td data-label='Código'>V22.006</td>
+<td data-label='Artigo'>GUARDANAPOS (380*380) FT 50</td>
+<td data-label='Fornecedor' style='background-color:#FFD9F0;'>GHOST SUAVECEL</td>
+<td data-label='Preço Artigo'>1,00</td>
+<td data-label='Preço Últ Compra'>0,85</td>
+<td data-label='IVA'>23,00%</td>
+<td data-label='Preço Kg' style='background-color:#FFD9F0; font-weight:bold;'>4,17</td>
+<td data-label='Preço Litro' style='background-color:#FFD9F0; font-weight:bold;'>0.00</td>
+<td data-label='Qtd'>1,000</td>
+<td data-label='Unidade'>Unidade</td>
+<td data-label='Preço Unitário'>0,85</td>
+<td data-label='SubFamilia'>PAPEL GUARDANAPOS</td>
+</tr>
+<tr>
+<td data-label='Código'>A1.005</td>
+<td data-label='Artigo'>JARDINEIRA DE NOVILHO</td>
+<td data-label='Fornecedor' style='background-color:#FFCCCC;'>LIDL</td>
+<td data-label='Preço Artigo'>10,07</td>
+<td data-label='Preço Últ Compra'>11,99</td>
+<td data-label='IVA'>6,00%</td>
+<td data-label='Preço Kg' style='background-color:#FFCCCC; font-weight:bold;'>11,99</td>
+<td data-label='Preço Litro' style='background-color:#FFCCCC; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>1,000</td>
+<td data-label='Unidade'>KILO</td>
+<td data-label='Preço Unitário'>11,99</td>
+<td data-label='SubFamilia'>TALHO</td>
+</tr>
+<tr>
+<td data-label='Código'>H8.002</td>
+<td data-label='Artigo'>KEYDOG 18Kg</td>
+<td data-label='Fornecedor' style='background-color:#CCFFFF;'>GADIS</td>
+<td data-label='Preço Artigo'>12,99</td>
+<td data-label='Preço Últ Compra'>12,99</td>
+<td data-label='IVA'>21,00%</td>
+<td data-label='Preço Kg' style='background-color:#CCFFFF; font-weight:bold;'>0,72</td>
+<td data-label='Preço Litro' style='background-color:#CCFFFF; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>1,000</td>
+<td data-label='Unidade'>Unidade</td>
+<td data-label='Preço Unitário'>12,99</td>
+<td data-label='SubFamilia'>PET FOOD</td>
+</tr>
+<tr>
+<td data-label='Código'>F6.005</td>
+<td data-label='Artigo'>LEITE CABRA (Mercadona)</td>
+<td data-label='Fornecedor' style='background-color:#CCFFCC;'></td>
+<td data-label='Preço Artigo'>1,87</td>
+<td data-label='Preço Últ Compra'>0.00</td>
+<td data-label='IVA'>0.00</td>
+<td data-label='Preço Kg' style='background-color:#CCFFCC; font-weight:bold;'>0,00</td>
+<td data-label='Preço Litro' style='background-color:#CCFFCC; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>0</td>
+<td data-label='Unidade'>Unidade</td>
+<td data-label='Preço Unitário'>0.00</td>
+<td data-label='SubFamilia'>PRODUTOS LACTEOS</td>
+</tr>
+<tr>
+<td data-label='Código'>F6.001</td>
+<td data-label='Artigo'>LEITE MAGRO S/LACTOSE</td>
+<td data-label='Fornecedor' style='background-color:#CCFFCC;'></td>
+<td data-label='Preço Artigo'>1,05</td>
+<td data-label='Preço Últ Compra'>0.00</td>
+<td data-label='IVA'>0.00</td>
+<td data-label='Preço Kg' style='background-color:#CCFFCC; font-weight:bold;'>0,00</td>
+<td data-label='Preço Litro' style='background-color:#CCFFCC; font-weight:bold;'>1,05</td>
+<td data-label='Qtd'>0</td>
+<td data-label='Unidade'>Litros</td>
+<td data-label='Preço Unitário'>0.00</td>
+<td data-label='SubFamilia'>PRODUTOS LACTEOS</td>
+</tr>
+<tr>
+<td data-label='Código'>V22.002</td>
+<td data-label='Artigo'>LENÇOS FACIAIS CAIXA 100</td>
+<td data-label='Fornecedor' style='background-color:#FFD9F0;'>GHOST SUAVECEL</td>
+<td data-label='Preço Artigo'>0,78</td>
+<td data-label='Preço Últ Compra'>0,65</td>
+<td data-label='IVA'>23,00%</td>
+<td data-label='Preço Kg' style='background-color:#FFD9F0; font-weight:bold;'>4,62</td>
+<td data-label='Preço Litro' style='background-color:#FFD9F0; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>1,000</td>
+<td data-label='Unidade'>Pack 10</td>
+<td data-label='Preço Unitário'>0,65</td>
+<td data-label='SubFamilia'>PAPEL GUARDANAPOS</td>
+</tr>
+<tr>
+<td data-label='Código'>V22.004</td>
+<td data-label='Artigo'>LENÇOS FACIAIS MINI (210*210) FT90</td>
+<td data-label='Fornecedor' style='background-color:#FFD9F0;'>GHOST SUAVECEL</td>
+<td data-label='Preço Artigo'>0,70</td>
+<td data-label='Preço Últ Compra'>0,67</td>
+<td data-label='IVA'>23,00%</td>
+<td data-label='Preço Kg' style='background-color:#FFD9F0; font-weight:bold;'>3,98</td>
+<td data-label='Preço Litro' style='background-color:#FFD9F0; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>2,000</td>
+<td data-label='Unidade'>Pack 10</td>
+<td data-label='Preço Unitário'>0,33</td>
+<td data-label='SubFamilia'>PAPEL GUARDANAPOS</td>
+</tr>
+<tr>
+<td data-label='Código'>V22.001</td>
+<td data-label='Artigo'>LENÇOS FACIAIS PRIME (215*198) FT56</td>
+<td data-label='Fornecedor' style='background-color:#FFD9F0;'>GHOST SUAVECEL</td>
+<td data-label='Preço Artigo'>0,80</td>
+<td data-label='Preço Últ Compra'>0,76</td>
+<td data-label='IVA'>23,00%</td>
+<td data-label='Preço Kg' style='background-color:#FFD9F0; font-weight:bold;'>5,52</td>
+<td data-label='Preço Litro' style='background-color:#FFD9F0; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>1,000</td>
+<td data-label='Unidade'>Pack 10</td>
+<td data-label='Preço Unitário'>0,76</td>
+<td data-label='SubFamilia'>PAPEL GUARDANAPOS</td>
+</tr>
+<tr>
+<td data-label='Código'>V22.003</td>
+<td data-label='Artigo'>LENÇOS FACIAIS PRIME MENTOL MINI (210*210) FT90</td>
+<td data-label='Fornecedor' style='background-color:#FFD9F0;'>GHOST SUAVECEL</td>
+<td data-label='Preço Artigo'>1,00</td>
+<td data-label='Preço Últ Compra'>0,95</td>
+<td data-label='IVA'>23,00%</td>
+<td data-label='Preço Kg' style='background-color:#FFD9F0; font-weight:bold;'>4,26</td>
+<td data-label='Preço Litro' style='background-color:#FFD9F0; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>1,000</td>
+<td data-label='Unidade'>Pack 10</td>
+<td data-label='Preço Unitário'>0,95</td>
+<td data-label='SubFamilia'>PAPEL GUARDANAPOS</td>
+</tr>
+<tr>
+<td data-label='Código'>D4.003</td>
+<td data-label='Artigo'>MAÇA GALA DE ALCOBAÇA</td>
+<td data-label='Fornecedor' style='background-color:#FFCCCC;'>LIDL</td>
+<td data-label='Preço Artigo'>1,89</td>
+<td data-label='Preço Últ Compra'>1,89</td>
+<td data-label='IVA'>6,00%</td>
+<td data-label='Preço Kg' style='background-color:#FFCCCC; font-weight:bold;'>1,89</td>
+<td data-label='Preço Litro' style='background-color:#FFCCCC; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>1,000</td>
+<td data-label='Unidade'>KILO</td>
+<td data-label='Preço Unitário'>1,89</td>
+<td data-label='SubFamilia'>FRUTAS E LEGUMES</td>
+</tr>
+<tr>
+<td data-label='Código'>D4.002</td>
+<td data-label='Artigo'>MAÇA GOLDEN (Saco 1,5 Kg)</td>
+<td data-label='Fornecedor' style='background-color:#CCFFCC;'></td>
+<td data-label='Preço Artigo'>2,98</td>
+<td data-label='Preço Últ Compra'>0.00</td>
+<td data-label='IVA'>0.00</td>
+<td data-label='Preço Kg' style='background-color:#CCFFCC; font-weight:bold;'>1,99</td>
+<td data-label='Preço Litro' style='background-color:#CCFFCC; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>0</td>
+<td data-label='Unidade'>Unidade</td>
+<td data-label='Preço Unitário'>0.00</td>
+<td data-label='SubFamilia'>FRUTAS E LEGUMES</td>
+</tr>
+<tr>
+<td data-label='Código'>E5.006</td>
+<td data-label='Artigo'>MAGGI MOLHO SOJA (20 CL)</td>
+<td data-label='Fornecedor' style='background-color:#FFFFCC;'>PRIMAPRIX</td>
+<td data-label='Preço Artigo'>1,30</td>
+<td data-label='Preço Últ Compra'>1,30</td>
+<td data-label='IVA'>10,00%</td>
+<td data-label='Preço Kg' style='background-color:#FFFFCC; font-weight:bold;'>0,00</td>
+<td data-label='Preço Litro' style='background-color:#FFFFCC; font-weight:bold;'>6,50</td>
+<td data-label='Qtd'>1,000</td>
+<td data-label='Unidade'>Unidade</td>
+<td data-label='Preço Unitário'>1,30</td>
+<td data-label='SubFamilia'>MERCEARIA</td>
+</tr>
+<tr>
+<td data-label='Código'>F6.002</td>
+<td data-label='Artigo'>MANTEIGA DOS AÇORES (250 Grs)</td>
+<td data-label='Fornecedor' style='background-color:#FFCCCC;'>LIDL</td>
+<td data-label='Preço Artigo'>1,98</td>
+<td data-label='Preço Últ Compra'>1,98</td>
+<td data-label='IVA'>6,00%</td>
+<td data-label='Preço Kg' style='background-color:#FFCCCC; font-weight:bold;'>7,92</td>
+<td data-label='Preço Litro' style='background-color:#FFCCCC; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>3,000</td>
+<td data-label='Unidade'>Unidade</td>
+<td data-label='Preço Unitário'>0,66</td>
+<td data-label='SubFamilia'>PRODUTOS LACTEOS</td>
+</tr>
+<tr>
+<td data-label='Código'>F6.004</td>
+<td data-label='Artigo'>MANTEIGA ILHA AZUL</td>
+<td data-label='Fornecedor' style='background-color:#CCFFCC;'></td>
+<td data-label='Preço Artigo'>1,95</td>
+<td data-label='Preço Últ Compra'>0.00</td>
+<td data-label='IVA'>0.00</td>
+<td data-label='Preço Kg' style='background-color:#CCFFCC; font-weight:bold;'>7,80</td>
+<td data-label='Preço Litro' style='background-color:#CCFFCC; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>0</td>
+<td data-label='Unidade'>KILO</td>
+<td data-label='Preço Unitário'>0.00</td>
+<td data-label='SubFamilia'>PRODUTOS LACTEOS</td>
+</tr>
+<tr>
+<td data-label='Código'>F6.003</td>
+<td data-label='Artigo'>MANTEIGA PRIMOR</td>
+<td data-label='Fornecedor' style='background-color:#FFCCCC;'>LIDL</td>
+<td data-label='Preço Artigo'>1,95</td>
+<td data-label='Preço Últ Compra'>1,56</td>
+<td data-label='IVA'>6,00%</td>
+<td data-label='Preço Kg' style='background-color:#FFCCCC; font-weight:bold;'>7,80</td>
+<td data-label='Preço Litro' style='background-color:#FFCCCC; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>1,000</td>
+<td data-label='Unidade'>Unidade</td>
+<td data-label='Preço Unitário'>1,56</td>
+<td data-label='SubFamilia'>PRODUTOS LACTEOS</td>
+</tr>
+<tr>
+<td data-label='Código'>G7.002</td>
+<td data-label='Artigo'>MEXILHOES MOLHO ESCABECHE</td>
+<td data-label='Fornecedor' style='background-color:#FFCCFF;'>AUCHAN</td>
+<td data-label='Preço Artigo'>1,00</td>
+<td data-label='Preço Últ Compra'>1,00</td>
+<td data-label='IVA'>10,00%</td>
+<td data-label='Preço Kg' style='background-color:#FFCCFF; font-weight:bold;'>9,01</td>
+<td data-label='Preço Litro' style='background-color:#FFCCFF; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>4,000</td>
+<td data-label='Unidade'>Unidade</td>
+<td data-label='Preço Unitário'>0,25</td>
+<td data-label='SubFamilia'>PRODUTOS EM CONSERVA</td>
+</tr>
+<tr>
+<td data-label='Código'>G7.002</td>
+<td data-label='Artigo'>MEXILHOES MOLHO ESCABECHE</td>
+<td data-label='Fornecedor' style='background-color:#CCFFFF;'>GADIS</td>
+<td data-label='Preço Artigo'>1,00</td>
+<td data-label='Preço Últ Compra'>1,00</td>
+<td data-label='IVA'>21,00%</td>
+<td data-label='Preço Kg' style='background-color:#CCFFFF; font-weight:bold;'>9,01</td>
+<td data-label='Preço Litro' style='background-color:#CCFFFF; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>4,000</td>
+<td data-label='Unidade'>Unidade</td>
+<td data-label='Preço Unitário'>0,25</td>
+<td data-label='SubFamilia'>PRODUTOS EM CONSERVA</td>
+</tr>
+<tr>
+<td data-label='Código'>G7.003</td>
+<td data-label='Artigo'>MEXILHOES MOLHO SALSA VIEIRA</td>
+<td data-label='Fornecedor' style='background-color:#FFCCFF;'>AUCHAN</td>
+<td data-label='Preço Artigo'>1,35</td>
+<td data-label='Preço Últ Compra'>1,35</td>
+<td data-label='IVA'>10,00%</td>
+<td data-label='Preço Kg' style='background-color:#FFCCFF; font-weight:bold;'>6,52</td>
+<td data-label='Preço Litro' style='background-color:#FFCCFF; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>2,000</td>
+<td data-label='Unidade'>Unidade</td>
+<td data-label='Preço Unitário'>0,68</td>
+<td data-label='SubFamilia'>PRODUTOS EM CONSERVA</td>
+</tr>
+<tr>
+<td data-label='Código'>M13.002</td>
+<td data-label='Artigo'>NEMS COM FRANGO (4 PEÇAS)</td>
+<td data-label='Fornecedor' style='background-color:#F0D9FF;'>LECLERC</td>
+<td data-label='Preço Artigo'>2,29</td>
+<td data-label='Preço Últ Compra'>2,29</td>
+<td data-label='IVA'>23,00%</td>
+<td data-label='Preço Kg' style='background-color:#F0D9FF; font-weight:bold;'>10,18</td>
+<td data-label='Preço Litro' style='background-color:#F0D9FF; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>1,000</td>
+<td data-label='Unidade'>Unidade</td>
+<td data-label='Preço Unitário'>2,29</td>
+<td data-label='SubFamilia'>PRATOS COZINHADOS</td>
+</tr>
+<tr>
+<td data-label='Código'>L12.001</td>
+<td data-label='Artigo'>NORDES</td>
+<td data-label='Fornecedor' style='background-color:#CCFFCC;'></td>
+<td data-label='Preço Artigo'>9,50</td>
+<td data-label='Preço Últ Compra'>0.00</td>
+<td data-label='IVA'>0.00</td>
+<td data-label='Preço Kg' style='background-color:#CCFFCC; font-weight:bold;'>0,00</td>
+<td data-label='Preço Litro' style='background-color:#CCFFCC; font-weight:bold;'>38,00</td>
+<td data-label='Qtd'>0</td>
+<td data-label='Unidade'>Litros</td>
+<td data-label='Preço Unitário'>0.00</td>
+<td data-label='SubFamilia'>BEBIDAS BAR</td>
+</tr>
+<tr>
+<td data-label='Código'>E5.007</td>
+<td data-label='Artigo'>PAO INTEGRAL</td>
+<td data-label='Fornecedor' style='background-color:#F0D9FF;'>LECLERC</td>
+<td data-label='Preço Artigo'>0,92</td>
+<td data-label='Preço Últ Compra'>0,92</td>
+<td data-label='IVA'>6,00%</td>
+<td data-label='Preço Kg' style='background-color:#F0D9FF; font-weight:bold;'>3,17</td>
+<td data-label='Preço Litro' style='background-color:#F0D9FF; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>1,000</td>
+<td data-label='Unidade'>KILO</td>
+<td data-label='Preço Unitário'>0,92</td>
+<td data-label='SubFamilia'>MERCEARIA</td>
+</tr>
+<tr>
+<td data-label='Código'>E5.008</td>
+<td data-label='Artigo'>PAO RUSTICO</td>
+<td data-label='Fornecedor' style='background-color:#CCFFCC;'></td>
+<td data-label='Preço Artigo'>0,60</td>
+<td data-label='Preço Últ Compra'>0.00</td>
+<td data-label='IVA'>0.00</td>
+<td data-label='Preço Kg' style='background-color:#CCFFCC; font-weight:bold;'>2,22</td>
+<td data-label='Preço Litro' style='background-color:#CCFFCC; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>0</td>
+<td data-label='Unidade'>Unidade</td>
+<td data-label='Preço Unitário'>0.00</td>
+<td data-label='SubFamilia'>MERCEARIA</td>
+</tr>
+<tr>
+<td data-label='Código'>B2.011</td>
+<td data-label='Artigo'>PAVO TRUFADO</td>
+<td data-label='Fornecedor' style='background-color:#FFCCFF;'>AUCHAN</td>
+<td data-label='Preço Artigo'>1,51</td>
+<td data-label='Preço Últ Compra'>1,51</td>
+<td data-label='IVA'>10,00%</td>
+<td data-label='Preço Kg' style='background-color:#FFCCFF; font-weight:bold;'>8,16</td>
+<td data-label='Preço Litro' style='background-color:#FFCCFF; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>1,000</td>
+<td data-label='Unidade'>KILO</td>
+<td data-label='Preço Unitário'>1,51</td>
+<td data-label='SubFamilia'>CHARCUTERIA</td>
+</tr>
+<tr>
+<td data-label='Código'>A1.004</td>
+<td data-label='Artigo'>PERNINHA DE FRANGO</td>
+<td data-label='Fornecedor' style='background-color:#FFCCCC;'>LIDL</td>
+<td data-label='Preço Artigo'>4,98</td>
+<td data-label='Preço Últ Compra'>4,98</td>
+<td data-label='IVA'>6,00%</td>
+<td data-label='Preço Kg' style='background-color:#FFCCCC; font-weight:bold;'>4,98</td>
+<td data-label='Preço Litro' style='background-color:#FFCCCC; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>1,000</td>
+<td data-label='Unidade'>KILO</td>
+<td data-label='Preço Unitário'>4,98</td>
+<td data-label='SubFamilia'>TALHO</td>
+</tr>
+<tr>
+<td data-label='Código'>S19.001</td>
+<td data-label='Artigo'>PILHAS Ref 399 </td>
+<td data-label='Fornecedor' style='background-color:#CCFFCC;'></td>
+<td data-label='Preço Artigo'>7,25</td>
+<td data-label='Preço Últ Compra'>0.00</td>
+<td data-label='IVA'>0.00</td>
+<td data-label='Preço Kg' style='background-color:#CCFFCC; font-weight:bold;'>0.00</td>
+<td data-label='Preço Litro' style='background-color:#CCFFCC; font-weight:bold;'>0.00</td>
+<td data-label='Qtd'>0</td>
+<td data-label='Unidade'>Unidade</td>
+<td data-label='Preço Unitário'>0.00</td>
+<td data-label='SubFamilia'>PILHAS RELOGIO</td>
+</tr>
+<tr>
+<td data-label='Código'>E5.009</td>
+<td data-label='Artigo'>PIMENTA CAYENA MOIDA (43 Grs)</td>
+<td data-label='Fornecedor' style='background-color:#FFCCFF;'>AUCHAN</td>
+<td data-label='Preço Artigo'>1,77</td>
+<td data-label='Preço Últ Compra'>1,77</td>
+<td data-label='IVA'>4,00%</td>
+<td data-label='Preço Kg' style='background-color:#FFCCFF; font-weight:bold;'>41,16</td>
+<td data-label='Preço Litro' style='background-color:#FFCCFF; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>1,000</td>
+<td data-label='Unidade'>KILO</td>
+<td data-label='Preço Unitário'>1,77</td>
+<td data-label='SubFamilia'>MERCEARIA</td>
+</tr>
+<tr>
+<td data-label='Código'>T20.001</td>
+<td data-label='Artigo'>PNEUS YOKOHAMA 175/65/14 R14</td>
+<td data-label='Fornecedor' style='background-color:#CCFFCC;'></td>
+<td data-label='Preço Artigo'>72,50</td>
+<td data-label='Preço Últ Compra'>0.00</td>
+<td data-label='IVA'>0.00</td>
+<td data-label='Preço Kg' style='background-color:#CCFFCC; font-weight:bold;'>0.00</td>
+<td data-label='Preço Litro' style='background-color:#CCFFCC; font-weight:bold;'>0.00</td>
+<td data-label='Qtd'>0</td>
+<td data-label='Unidade'>Unidade</td>
+<td data-label='Preço Unitário'>0.00</td>
+<td data-label='SubFamilia'>PNEUS C3</td>
+</tr>
+<tr>
+<td data-label='Código'>F6.007</td>
+<td data-label='Artigo'>QUEIJO FRANCES CLASSICO</td>
+<td data-label='Fornecedor' style='background-color:#CCCCFF;'>MERCADONA PORTUGAL</td>
+<td data-label='Preço Artigo'>2,19</td>
+<td data-label='Preço Últ Compra'>2,19</td>
+<td data-label='IVA'>6,00%</td>
+<td data-label='Preço Kg' style='background-color:#CCCCFF; font-weight:bold;'>10,95</td>
+<td data-label='Preço Litro' style='background-color:#CCCCFF; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>1,000</td>
+<td data-label='Unidade'>Unidade</td>
+<td data-label='Preço Unitário'>2,19</td>
+<td data-label='SubFamilia'>PRODUTOS LACTEOS</td>
+</tr>
+<tr>
+<td data-label='Código'>F6.006</td>
+<td data-label='Artigo'>QUEIJO TERRA NOSTRA 1/4 BOLA</td>
+<td data-label='Fornecedor' style='background-color:#CCCCFF;'>MERCADONA PORTUGAL</td>
+<td data-label='Preço Artigo'>4,29</td>
+<td data-label='Preço Últ Compra'>4,29</td>
+<td data-label='IVA'>6,00%</td>
+<td data-label='Preço Kg' style='background-color:#CCCCFF; font-weight:bold;'>12,26</td>
+<td data-label='Preço Litro' style='background-color:#CCCCFF; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>1,000</td>
+<td data-label='Unidade'>Unidade</td>
+<td data-label='Preço Unitário'>4,29</td>
+<td data-label='SubFamilia'>PRODUTOS LACTEOS</td>
+</tr>
+<tr>
+<td data-label='Código'>G7.001</td>
+<td data-label='Artigo'>REBENTOS DE SOJA (Bonduelle)</td>
+<td data-label='Fornecedor' style='background-color:#FFCCFF;'>AUCHAN</td>
+<td data-label='Preço Artigo'>3,13</td>
+<td data-label='Preço Últ Compra'>3,13</td>
+<td data-label='IVA'>10,00%</td>
+<td data-label='Preço Kg' style='background-color:#FFCCFF; font-weight:bold;'>11,59</td>
+<td data-label='Preço Litro' style='background-color:#FFCCFF; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>1,000</td>
+<td data-label='Unidade'>Pack 3</td>
+<td data-label='Preço Unitário'>3,13</td>
+<td data-label='SubFamilia'>PRODUTOS EM CONSERVA</td>
+</tr>
+<tr>
+<td data-label='Código'>B2.006</td>
+<td data-label='Artigo'>SALSICHA COKTAIL BACON (300 Grs)</td>
+<td data-label='Fornecedor' style='background-color:#F0D9FF;'>LECLERC</td>
+<td data-label='Preço Artigo'>3,99</td>
+<td data-label='Preço Últ Compra'>3,99</td>
+<td data-label='IVA'>23,00%</td>
+<td data-label='Preço Kg' style='background-color:#F0D9FF; font-weight:bold;'>13,30</td>
+<td data-label='Preço Litro' style='background-color:#F0D9FF; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>1,000</td>
+<td data-label='Unidade'>Unidade</td>
+<td data-label='Preço Unitário'>3,99</td>
+<td data-label='SubFamilia'>CHARCUTERIA</td>
+</tr>
+<tr>
+<td data-label='Código'>B2.008</td>
+<td data-label='Artigo'>TOCO MAO FUMADO AVECAR KG</td>
+<td data-label='Fornecedor' style='background-color:#F0D9FF;'>LECLERC</td>
+<td data-label='Preço Artigo'>6,64</td>
+<td data-label='Preço Últ Compra'>6,64</td>
+<td data-label='IVA'>23,00%</td>
+<td data-label='Preço Kg' style='background-color:#F0D9FF; font-weight:bold;'>6,99</td>
+<td data-label='Preço Litro' style='background-color:#F0D9FF; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>1,000</td>
+<td data-label='Unidade'>KILO</td>
+<td data-label='Preço Unitário'>6,64</td>
+<td data-label='SubFamilia'>CHARCUTERIA</td>
+</tr>
+<tr>
+<td data-label='Código'>D4.006</td>
+<td data-label='Artigo'>TOMATES</td>
+<td data-label='Fornecedor' style='background-color:#CCFFCC;'></td>
+<td data-label='Preço Artigo'>2,49</td>
+<td data-label='Preço Últ Compra'>0.00</td>
+<td data-label='IVA'>0.00</td>
+<td data-label='Preço Kg' style='background-color:#CCFFCC; font-weight:bold;'>2,49</td>
+<td data-label='Preço Litro' style='background-color:#CCFFCC; font-weight:bold;'>0,00</td>
+<td data-label='Qtd'>0</td>
+<td data-label='Unidade'>KILO</td>
+<td data-label='Preço Unitário'>0.00</td>
+<td data-label='SubFamilia'>FRUTAS E LEGUMES</td>
 </tr>
 </table>
-</div>
 </body>
 </html>
