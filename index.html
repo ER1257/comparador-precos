@@ -6,16 +6,60 @@
 <title>Comparação de Preços</title>
 <style>
 body { font-family: Arial, sans-serif; padding: 20px; }
-table { width: 100%; border-collapse: collapse; }
+table { width: 100%; border-collapse: collapse; margin-top: 20px; min-width: 900px; }
 th, td { padding: 10px; border: 1px solid #ccc; text-align: center; }
 th { background-color: #f5f5f5; }
+label, select, button { margin-top: 10px; font-size: 16px; }
+button { margin-left: 10px; padding: 5px 10px; }
+@media (max-width: 768px) {
+  body { padding: 10px; font-size: 14px; }
+  table { font-size: 12px; }
+  .tabela-wrapper { overflow-x: auto; }
+}
 </style>
+<script>
+function filtrarSubfamilia() {
+  var filtro = document.getElementById('filtroSubfamilia').value.toLowerCase();
+  var linhas = document.getElementById('tabelaComparacao').rows;
+  for (var i = 1; i < linhas.length; i++) {
+    var subfamilia = linhas[i].cells[11].innerText.toLowerCase();
+    linhas[i].style.display = (filtro === '' || subfamilia === filtro) ? '' : 'none';
+  }
+}
+function limparFiltro() {
+  document.getElementById('filtroSubfamilia').value = '';
+  filtrarSubfamilia();
+}
+</script>
 </head>
 <body>
 <h1>Comparação de Preços - Menor Preço por Artigo</h1>
-<table>
+<label for='filtroSubfamilia'>Filtrar por SubFamília:</label>
+<select id='filtroSubfamilia' onchange='filtrarSubfamilia()'>
+<option value=''>-- Todas --</option>
+<option value='BEBIDAS ALCOOL'>BEBIDAS ALCOOL</option>
+<option value='BEBIDAS BAR'>BEBIDAS BAR</option>
+<option value='BEBIDAS SUMOS'>BEBIDAS SUMOS</option>
+<option value='CHARCUTERIA'>CHARCUTERIA</option>
+<option value='DETERGENTES'>DETERGENTES</option>
+<option value='DOCES'>DOCES</option>
+<option value='FRUTAS E LEGUMES'>FRUTAS E LEGUMES</option>
+<option value='MERCEARIA'>MERCEARIA</option>
+<option value='PAPEL GUARDANAPOS'>PAPEL GUARDANAPOS</option>
+<option value='PEIXARIA'>PEIXARIA</option>
+<option value='PET FOOD'>PET FOOD</option>
+<option value='PILHAS RELOGIO'>PILHAS RELOGIO</option>
+<option value='PNEUS C3'>PNEUS C3</option>
+<option value='PRATOS COZINHADOS'>PRATOS COZINHADOS</option>
+<option value='PRODUTOS EM CONSERVA'>PRODUTOS EM CONSERVA</option>
+<option value='PRODUTOS LACTEOS'>PRODUTOS LACTEOS</option>
+<option value='TALHO'>TALHO</option>
+</select>
+<button onclick='limparFiltro()'>Limpar Filtro</button>
+<div class='tabela-wrapper'>
+<table id='tabelaComparacao'>
 <tr>
-<th>Código</th><th>Artigo</th><th>Fornecedor</th><th>Preço Artigo</th><th>Preço Últ Compra</th><th>IVA</th><th>Preço Kg</th><th>Preço Litro</th><th>Qtd</th><th>Unidade</th><th>Preço Unitário</th>
+<th>Código</th><th>Artigo</th><th>Fornecedor</th><th>Preço Artigo</th><th>Preço Últ Compra</th><th>IVA</th><th>Preço Kg</th><th>Preço Litro</th><th>Qtd</th><th>Unidade</th><th>Preço Unitário</th><th>SubFamilia</th>
 </tr>
 <tr>
 <td>Q17.001</td>
@@ -29,6 +73,7 @@ th { background-color: #f5f5f5; }
 <td>1,000</td>
 <td>Pack 6</td>
 <td>1,39</td>
+<td>BEBIDAS SUMOS</td>
 </tr>
 <tr>
 <td>Q17.002</td>
@@ -42,6 +87,7 @@ th { background-color: #f5f5f5; }
 <td>8,000</td>
 <td>Unidade</td>
 <td>0,06</td>
+<td>BEBIDAS SUMOS</td>
 </tr>
 <tr>
 <td>D4.001</td>
@@ -55,6 +101,7 @@ th { background-color: #f5f5f5; }
 <td>1,000</td>
 <td>Unidade</td>
 <td>1,49</td>
+<td>FRUTAS E LEGUMES</td>
 </tr>
 <tr>
 <td>R18.001</td>
@@ -68,6 +115,7 @@ th { background-color: #f5f5f5; }
 <td>0</td>
 <td>Unidade</td>
 <td>0.00</td>
+<td>DETERGENTES</td>
 </tr>
 <tr>
 <td>E5.003</td>
@@ -81,6 +129,7 @@ th { background-color: #f5f5f5; }
 <td>0</td>
 <td>KILO</td>
 <td>0.00</td>
+<td>MERCEARIA</td>
 </tr>
 <tr>
 <td>E5.002</td>
@@ -94,6 +143,7 @@ th { background-color: #f5f5f5; }
 <td>0</td>
 <td>KILO</td>
 <td>0.00</td>
+<td>MERCEARIA</td>
 </tr>
 <tr>
 <td>E5.001</td>
@@ -107,6 +157,7 @@ th { background-color: #f5f5f5; }
 <td>0</td>
 <td>Unidade</td>
 <td>0.00</td>
+<td>MERCEARIA</td>
 </tr>
 <tr>
 <td>O15.001</td>
@@ -120,6 +171,7 @@ th { background-color: #f5f5f5; }
 <td>1,000</td>
 <td>KILO</td>
 <td>28,54</td>
+<td>PEIXARIA</td>
 </tr>
 <tr>
 <td>B2.001</td>
@@ -133,6 +185,7 @@ th { background-color: #f5f5f5; }
 <td>2,000</td>
 <td>Unidade</td>
 <td>1,10</td>
+<td>CHARCUTERIA</td>
 </tr>
 <tr>
 <td>B2.012</td>
@@ -146,6 +199,7 @@ th { background-color: #f5f5f5; }
 <td>1,000</td>
 <td>Unidade</td>
 <td>2,39</td>
+<td>CHARCUTERIA</td>
 </tr>
 <tr>
 <td>B2.002</td>
@@ -159,6 +213,7 @@ th { background-color: #f5f5f5; }
 <td>1,000</td>
 <td>Unidade</td>
 <td>3,09</td>
+<td>CHARCUTERIA</td>
 </tr>
 <tr>
 <td>M13.003</td>
@@ -172,6 +227,7 @@ th { background-color: #f5f5f5; }
 <td>2,000</td>
 <td>Unidade</td>
 <td>0,73</td>
+<td>PRATOS COZINHADOS</td>
 </tr>
 <tr>
 <td>A1.001</td>
@@ -185,6 +241,7 @@ th { background-color: #f5f5f5; }
 <td>0</td>
 <td>Unidade</td>
 <td>0.00</td>
+<td>TALHO</td>
 </tr>
 <tr>
 <td>C3.003</td>
@@ -198,6 +255,7 @@ th { background-color: #f5f5f5; }
 <td>1,000</td>
 <td>Unidade</td>
 <td>2,19</td>
+<td>BEBIDAS ALCOOL</td>
 </tr>
 <tr>
 <td>D4.005</td>
@@ -211,6 +269,7 @@ th { background-color: #f5f5f5; }
 <td>0,000</td>
 <td>KILO</td>
 <td>0.00</td>
+<td>FRUTAS E LEGUMES</td>
 </tr>
 <tr>
 <td>E5.005</td>
@@ -224,6 +283,7 @@ th { background-color: #f5f5f5; }
 <td>0</td>
 <td>Unidade</td>
 <td>0.00</td>
+<td>MERCEARIA</td>
 </tr>
 <tr>
 <td>E5.004</td>
@@ -237,6 +297,7 @@ th { background-color: #f5f5f5; }
 <td>0</td>
 <td>KILO</td>
 <td>0.00</td>
+<td>MERCEARIA</td>
 </tr>
 <tr>
 <td>F7.008</td>
@@ -250,6 +311,7 @@ th { background-color: #f5f5f5; }
 <td>1,000</td>
 <td>Unidade</td>
 <td>2,95</td>
+<td>PRODUTOS LACTEOS</td>
 </tr>
 <tr>
 <td>D4.004</td>
@@ -263,6 +325,7 @@ th { background-color: #f5f5f5; }
 <td>1,000</td>
 <td>KILO</td>
 <td>0,79</td>
+<td>FRUTAS E LEGUMES</td>
 </tr>
 <tr>
 <td>C3.001</td>
@@ -276,6 +339,7 @@ th { background-color: #f5f5f5; }
 <td>3,000</td>
 <td>Pack 6</td>
 <td>1,59</td>
+<td>BEBIDAS ALCOOL</td>
 </tr>
 <tr>
 <td>C3.002</td>
@@ -289,6 +353,7 @@ th { background-color: #f5f5f5; }
 <td>0</td>
 <td>Unidade</td>
 <td>0.00</td>
+<td>BEBIDAS ALCOOL</td>
 </tr>
 <tr>
 <td>N14.002</td>
@@ -302,6 +367,7 @@ th { background-color: #f5f5f5; }
 <td>1,000</td>
 <td>Unidade</td>
 <td>1,85</td>
+<td>DOCES</td>
 </tr>
 <tr>
 <td>B2.007</td>
@@ -315,6 +381,7 @@ th { background-color: #f5f5f5; }
 <td>1,000</td>
 <td>KILO</td>
 <td>5,99</td>
+<td>CHARCUTERIA</td>
 </tr>
 <tr>
 <td>B2.005</td>
@@ -328,6 +395,7 @@ th { background-color: #f5f5f5; }
 <td>1,000</td>
 <td>KILO</td>
 <td>6,65</td>
+<td>CHARCUTERIA</td>
 </tr>
 <tr>
 <td>B2.004</td>
@@ -341,6 +409,7 @@ th { background-color: #f5f5f5; }
 <td>1,000</td>
 <td>KILO</td>
 <td>10,00</td>
+<td>CHARCUTERIA</td>
 </tr>
 <tr>
 <td>G7.006</td>
@@ -354,6 +423,7 @@ th { background-color: #f5f5f5; }
 <td>0</td>
 <td>Unidade</td>
 <td>0.00</td>
+<td>PRODUTOS EM CONSERVA</td>
 </tr>
 <tr>
 <td>G7.005</td>
@@ -367,6 +437,7 @@ th { background-color: #f5f5f5; }
 <td>3,000</td>
 <td>Unidade</td>
 <td>0,34</td>
+<td>PRODUTOS EM CONSERVA</td>
 </tr>
 <tr>
 <td>G7.007</td>
@@ -380,6 +451,7 @@ th { background-color: #f5f5f5; }
 <td>0</td>
 <td>Unidade</td>
 <td>0.00</td>
+<td>PRODUTOS EM CONSERVA</td>
 </tr>
 <tr>
 <td>G7.004</td>
@@ -393,6 +465,7 @@ th { background-color: #f5f5f5; }
 <td>1,000</td>
 <td>Unidade</td>
 <td>2,99</td>
+<td>PRODUTOS EM CONSERVA</td>
 </tr>
 <tr>
 <td>A1.003</td>
@@ -406,6 +479,7 @@ th { background-color: #f5f5f5; }
 <td>1,000</td>
 <td>KILO</td>
 <td>4,99</td>
+<td>TALHO</td>
 </tr>
 <tr>
 <td>H8.001</td>
@@ -419,6 +493,7 @@ th { background-color: #f5f5f5; }
 <td>1,000</td>
 <td>Unidade</td>
 <td>15,49</td>
+<td>PET FOOD</td>
 </tr>
 <tr>
 <td>E5.010</td>
@@ -432,6 +507,7 @@ th { background-color: #f5f5f5; }
 <td>1,000</td>
 <td>KILO</td>
 <td>1,76</td>
+<td>MERCEARIA</td>
 </tr>
 <tr>
 <td>M13.001</td>
@@ -445,6 +521,7 @@ th { background-color: #f5f5f5; }
 <td>1,000</td>
 <td>Unidade</td>
 <td>1,99</td>
+<td>PRATOS COZINHADOS</td>
 </tr>
 <tr>
 <td>N14.001</td>
@@ -458,6 +535,7 @@ th { background-color: #f5f5f5; }
 <td>1,000</td>
 <td>Unidade</td>
 <td>3,49</td>
+<td>DOCES</td>
 </tr>
 <tr>
 <td>B2.003</td>
@@ -471,6 +549,7 @@ th { background-color: #f5f5f5; }
 <td>1,000</td>
 <td>Unidade</td>
 <td>2,41</td>
+<td>CHARCUTERIA</td>
 </tr>
 <tr>
 <td>B2.010</td>
@@ -484,6 +563,7 @@ th { background-color: #f5f5f5; }
 <td>2,000</td>
 <td>Unidade</td>
 <td>1,33</td>
+<td>CHARCUTERIA</td>
 </tr>
 <tr>
 <td>O15.002</td>
@@ -497,6 +577,7 @@ th { background-color: #f5f5f5; }
 <td>0,328</td>
 <td>KILO</td>
 <td>34,12</td>
+<td>PEIXARIA</td>
 </tr>
 <tr>
 <td>A1.002</td>
@@ -510,6 +591,7 @@ th { background-color: #f5f5f5; }
 <td>1,000</td>
 <td>KILO</td>
 <td>7,85</td>
+<td>TALHO</td>
 </tr>
 <tr>
 <td>B2.009</td>
@@ -523,6 +605,7 @@ th { background-color: #f5f5f5; }
 <td>1,000</td>
 <td>KILO</td>
 <td>2,44</td>
+<td>CHARCUTERIA</td>
 </tr>
 <tr>
 <td>C3.004</td>
@@ -536,6 +619,7 @@ th { background-color: #f5f5f5; }
 <td>1,000</td>
 <td>Unidade</td>
 <td>23,99</td>
+<td>BEBIDAS ALCOOL</td>
 </tr>
 <tr>
 <td>V22.005</td>
@@ -549,6 +633,7 @@ th { background-color: #f5f5f5; }
 <td>1,000</td>
 <td>Unidade</td>
 <td>0,56</td>
+<td>PAPEL GUARDANAPOS</td>
 </tr>
 <tr>
 <td>V22.006</td>
@@ -562,6 +647,7 @@ th { background-color: #f5f5f5; }
 <td>1,000</td>
 <td>Unidade</td>
 <td>0,85</td>
+<td>PAPEL GUARDANAPOS</td>
 </tr>
 <tr>
 <td>A1.005</td>
@@ -575,6 +661,7 @@ th { background-color: #f5f5f5; }
 <td>1,000</td>
 <td>KILO</td>
 <td>11,99</td>
+<td>TALHO</td>
 </tr>
 <tr>
 <td>H8.002</td>
@@ -588,6 +675,7 @@ th { background-color: #f5f5f5; }
 <td>1,000</td>
 <td>Unidade</td>
 <td>12,99</td>
+<td>PET FOOD</td>
 </tr>
 <tr>
 <td>F6.005</td>
@@ -601,6 +689,7 @@ th { background-color: #f5f5f5; }
 <td>0</td>
 <td>Unidade</td>
 <td>0.00</td>
+<td>PRODUTOS LACTEOS</td>
 </tr>
 <tr>
 <td>F6.001</td>
@@ -614,6 +703,7 @@ th { background-color: #f5f5f5; }
 <td>0</td>
 <td>Litros</td>
 <td>0.00</td>
+<td>PRODUTOS LACTEOS</td>
 </tr>
 <tr>
 <td>V22.002</td>
@@ -627,6 +717,7 @@ th { background-color: #f5f5f5; }
 <td>1,000</td>
 <td>Pack 10</td>
 <td>0,65</td>
+<td>PAPEL GUARDANAPOS</td>
 </tr>
 <tr>
 <td>V22.004</td>
@@ -640,6 +731,7 @@ th { background-color: #f5f5f5; }
 <td>2,000</td>
 <td>Pack 10</td>
 <td>0,33</td>
+<td>PAPEL GUARDANAPOS</td>
 </tr>
 <tr>
 <td>V22.001</td>
@@ -653,6 +745,7 @@ th { background-color: #f5f5f5; }
 <td>1,000</td>
 <td>Pack 10</td>
 <td>0,76</td>
+<td>PAPEL GUARDANAPOS</td>
 </tr>
 <tr>
 <td>V22.003</td>
@@ -666,6 +759,7 @@ th { background-color: #f5f5f5; }
 <td>1,000</td>
 <td>Pack 10</td>
 <td>0,95</td>
+<td>PAPEL GUARDANAPOS</td>
 </tr>
 <tr>
 <td>D4.003</td>
@@ -679,6 +773,7 @@ th { background-color: #f5f5f5; }
 <td>1,000</td>
 <td>KILO</td>
 <td>1,89</td>
+<td>FRUTAS E LEGUMES</td>
 </tr>
 <tr>
 <td>D4.002</td>
@@ -692,6 +787,7 @@ th { background-color: #f5f5f5; }
 <td>0</td>
 <td>Unidade</td>
 <td>0.00</td>
+<td>FRUTAS E LEGUMES</td>
 </tr>
 <tr>
 <td>E5.006</td>
@@ -705,6 +801,7 @@ th { background-color: #f5f5f5; }
 <td>1,000</td>
 <td>Unidade</td>
 <td>1,30</td>
+<td>MERCEARIA</td>
 </tr>
 <tr>
 <td>F6.002</td>
@@ -718,6 +815,7 @@ th { background-color: #f5f5f5; }
 <td>3,000</td>
 <td>Unidade</td>
 <td>0,66</td>
+<td>PRODUTOS LACTEOS</td>
 </tr>
 <tr>
 <td>F6.004</td>
@@ -731,6 +829,7 @@ th { background-color: #f5f5f5; }
 <td>0</td>
 <td>KILO</td>
 <td>0.00</td>
+<td>PRODUTOS LACTEOS</td>
 </tr>
 <tr>
 <td>F6.003</td>
@@ -744,6 +843,7 @@ th { background-color: #f5f5f5; }
 <td>1,000</td>
 <td>Unidade</td>
 <td>1,56</td>
+<td>PRODUTOS LACTEOS</td>
 </tr>
 <tr>
 <td>G7.002</td>
@@ -757,6 +857,7 @@ th { background-color: #f5f5f5; }
 <td>4,000</td>
 <td>Unidade</td>
 <td>0,25</td>
+<td>PRODUTOS EM CONSERVA</td>
 </tr>
 <tr>
 <td>G7.002</td>
@@ -770,6 +871,7 @@ th { background-color: #f5f5f5; }
 <td>4,000</td>
 <td>Unidade</td>
 <td>0,25</td>
+<td>PRODUTOS EM CONSERVA</td>
 </tr>
 <tr>
 <td>G7.003</td>
@@ -783,6 +885,7 @@ th { background-color: #f5f5f5; }
 <td>2,000</td>
 <td>Unidade</td>
 <td>0,68</td>
+<td>PRODUTOS EM CONSERVA</td>
 </tr>
 <tr>
 <td>M13.002</td>
@@ -796,6 +899,7 @@ th { background-color: #f5f5f5; }
 <td>1,000</td>
 <td>Unidade</td>
 <td>2,29</td>
+<td>PRATOS COZINHADOS</td>
 </tr>
 <tr>
 <td>L12.001</td>
@@ -809,6 +913,7 @@ th { background-color: #f5f5f5; }
 <td>0</td>
 <td>Litros</td>
 <td>0.00</td>
+<td>BEBIDAS BAR</td>
 </tr>
 <tr>
 <td>E5.007</td>
@@ -822,6 +927,7 @@ th { background-color: #f5f5f5; }
 <td>1,000</td>
 <td>KILO</td>
 <td>0,92</td>
+<td>MERCEARIA</td>
 </tr>
 <tr>
 <td>E5.008</td>
@@ -835,6 +941,7 @@ th { background-color: #f5f5f5; }
 <td>0</td>
 <td>Unidade</td>
 <td>0.00</td>
+<td>MERCEARIA</td>
 </tr>
 <tr>
 <td>B2.011</td>
@@ -848,6 +955,7 @@ th { background-color: #f5f5f5; }
 <td>1,000</td>
 <td>KILO</td>
 <td>1,51</td>
+<td>CHARCUTERIA</td>
 </tr>
 <tr>
 <td>A1.004</td>
@@ -861,6 +969,7 @@ th { background-color: #f5f5f5; }
 <td>1,000</td>
 <td>KILO</td>
 <td>4,98</td>
+<td>TALHO</td>
 </tr>
 <tr>
 <td>S19.001</td>
@@ -874,6 +983,7 @@ th { background-color: #f5f5f5; }
 <td>0</td>
 <td>Unidade</td>
 <td>0.00</td>
+<td>PILHAS RELOGIO</td>
 </tr>
 <tr>
 <td>E5.009</td>
@@ -887,6 +997,7 @@ th { background-color: #f5f5f5; }
 <td>1,000</td>
 <td>KILO</td>
 <td>1,77</td>
+<td>MERCEARIA</td>
 </tr>
 <tr>
 <td>T20.001</td>
@@ -900,6 +1011,7 @@ th { background-color: #f5f5f5; }
 <td>0</td>
 <td>Unidade</td>
 <td>0.00</td>
+<td>PNEUS C3</td>
 </tr>
 <tr>
 <td>F6.007</td>
@@ -913,6 +1025,7 @@ th { background-color: #f5f5f5; }
 <td>1,000</td>
 <td>Unidade</td>
 <td>2,19</td>
+<td>PRODUTOS LACTEOS</td>
 </tr>
 <tr>
 <td>F6.006</td>
@@ -926,6 +1039,7 @@ th { background-color: #f5f5f5; }
 <td>1,000</td>
 <td>Unidade</td>
 <td>4,29</td>
+<td>PRODUTOS LACTEOS</td>
 </tr>
 <tr>
 <td>G7.001</td>
@@ -939,6 +1053,7 @@ th { background-color: #f5f5f5; }
 <td>1,000</td>
 <td>Pack 3</td>
 <td>3,13</td>
+<td>PRODUTOS EM CONSERVA</td>
 </tr>
 <tr>
 <td>B2.006</td>
@@ -952,6 +1067,7 @@ th { background-color: #f5f5f5; }
 <td>1,000</td>
 <td>Unidade</td>
 <td>3,99</td>
+<td>CHARCUTERIA</td>
 </tr>
 <tr>
 <td>B2.008</td>
@@ -965,6 +1081,7 @@ th { background-color: #f5f5f5; }
 <td>1,000</td>
 <td>KILO</td>
 <td>6,64</td>
+<td>CHARCUTERIA</td>
 </tr>
 <tr>
 <td>D4.006</td>
@@ -978,7 +1095,9 @@ th { background-color: #f5f5f5; }
 <td>0</td>
 <td>KILO</td>
 <td>0.00</td>
+<td>FRUTAS E LEGUMES</td>
 </tr>
 </table>
+</div>
 </body>
 </html>
