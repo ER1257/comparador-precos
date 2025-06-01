@@ -1,8 +1,16 @@
 ﻿<html>
 <head>
 <meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
 <style>
 body { font-family: Arial, sans-serif; margin: 20px; }
+label, select, button { margin-top: 10px; font-size: 16px; }
+button { margin-left: 10px; padding: 5px 10px; }
+@media (max-width: 768px) {
+  body { padding: 10px; font-size: 14px; }
+  table { font-size: 12px; }
+  .tabela-wrapper { overflow-x: auto; }
+}
 table { border-collapse: collapse; width: 100%; margin-top: 15px; }
 th, td { border: 1px solid #999; padding: 8px; text-align: left; }
 th { background-color: #f2f2f2; }
@@ -33,8 +41,8 @@ tr:nth-child(even) { background-color: #f9f9f9; }
 <option value='TALHO'>TALHO</option>
 </select>
 <button onclick='limparFiltro()'>Limpar Filtro</button>
-<p><strong>Número de artigos selecionados:</strong> 21</p>
-<p><strong>Total das Compras:</strong> 117,78 €</p>
+<p><strong>Número de artigos selecionados:</strong> 28</p>
+<p><strong>Total das Compras:</strong> 117,13 €</p>
 <table id='tabelaCompras'>
 <thead>
 <tr>
@@ -49,6 +57,16 @@ tr:nth-child(even) { background-color: #f9f9f9; }
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>G7.010</td>
+<td>ACEITONAS ANCHOA (150Grs)</td>
+<td style='background-color:#FFD700;'>MERCADONA ESPANHA</td>
+<td>1,05</td>
+<td>1,05</td>
+<td>3,000</td>
+<td>Unidade</td>
+<td>PRODUTOS EM CONSERVA</td>
+</tr>
 <tr>
 <td>G7.008</td>
 <td>ACEITONAS JALAPENO (150 Grs)</td>
@@ -75,8 +93,18 @@ tr:nth-child(even) { background-color: #f9f9f9; }
 <td style='background-color:#ADFF2F;'>LIDL</td>
 <td>1,39</td>
 <td>1,39</td>
-<td>1,000</td>
+<td>2</td>
 <td>Pack 6</td>
+<td>BEBIDAS SUMOS</td>
+</tr>
+<tr>
+<td>Q17.002</td>
+<td>AGUA TONICA REGULAR (33 Cl)</td>
+<td style='background-color:#ADFF2F;'>LIDL</td>
+<td>0,49</td>
+<td>0,49</td>
+<td>8,000</td>
+<td>Unidade</td>
 <td>BEBIDAS SUMOS</td>
 </tr>
 <tr>
@@ -90,12 +118,42 @@ tr:nth-child(even) { background-color: #f9f9f9; }
 <td>BEBIDAS SUMOS</td>
 </tr>
 <tr>
+<td>E5.003</td>
+<td>ARROZ BASMATI HACENDADO</td>
+<td style='background-color:#FFB6C1;'></td>
+<td>2,00</td>
+<td>0.00</td>
+<td>0</td>
+<td>KILO</td>
+<td>MERCEARIA</td>
+</tr>
+<tr>
+<td>E5.002</td>
+<td>ARROZ VAPORIZADO HACENDADO</td>
+<td style='background-color:#FFB6C1;'></td>
+<td>1,35</td>
+<td>0.00</td>
+<td>0</td>
+<td>KILO</td>
+<td>MERCEARIA</td>
+</tr>
+<tr>
 <td>B2.001</td>
 <td>BACON EM PEDACOS (200 Gr)</td>
 <td style='background-color:#ADFF2F;'>LIDL</td>
 <td>2,19</td>
 <td>2,19</td>
 <td>3,000</td>
+<td>Unidade</td>
+<td>CHARCUTERIA</td>
+</tr>
+<tr>
+<td>B2.002</td>
+<td>BACON FATIADO (300 Gr)</td>
+<td style='background-color:#ADFF2F;'>LIDL</td>
+<td>3,09</td>
+<td>3,09</td>
+<td>1,000</td>
 <td>Unidade</td>
 <td>CHARCUTERIA</td>
 </tr>
@@ -110,24 +168,14 @@ tr:nth-child(even) { background-color: #f9f9f9; }
 <td>PRATOS COZINHADOS</td>
 </tr>
 <tr>
-<td>E5.005</td>
-<td>CAFE CAPSULA  EXTRAFORTE (104 Gr)</td>
-<td style='background-color:#FFD700;'>MERCADONA ESPANHA</td>
-<td>3,65</td>
-<td>3,90</td>
-<td>2,000</td>
-<td>Unidade</td>
-<td>MERCEARIA</td>
-</tr>
-<tr>
-<td>E5.004</td>
-<td>CAFE CAPSULA RISTRETO (106 Gr)</td>
+<td>C3.002</td>
+<td>CERVEJA SAGRES (33 cl)</td>
 <td style='background-color:#FFB6C1;'></td>
-<td>4,35</td>
+<td>0,59</td>
 <td>0.00</td>
 <td>0</td>
-<td>KILO</td>
-<td>MERCEARIA</td>
+<td>Unidade</td>
+<td>BEBIDAS ALCOOL</td>
 </tr>
 <tr>
 <td>G7.006</td>
@@ -150,14 +198,14 @@ tr:nth-child(even) { background-color: #f9f9f9; }
 <td>PRODUTOS EM CONSERVA</td>
 </tr>
 <tr>
-<td>H8.001</td>
-<td>CROQUETAS CAO (20Kg)</td>
+<td>A1.003</td>
+<td>COXA DE FRANGO</td>
 <td style='background-color:#ADFF2F;'>LIDL</td>
-<td>15,49</td>
-<td>15,39</td>
+<td>5,69</td>
+<td>4,99</td>
 <td>1,000</td>
-<td>Unidade</td>
-<td>PET FOOD</td>
+<td>KILO</td>
+<td>TALHO</td>
 </tr>
 <tr>
 <td>B2.014</td>
@@ -175,7 +223,7 @@ tr:nth-child(even) { background-color: #f9f9f9; }
 <td style='background-color:#ADFF2F;'>LIDL</td>
 <td>2,65</td>
 <td>2,65</td>
-<td>1,000</td>
+<td>2</td>
 <td>Unidade</td>
 <td>CHARCUTERIA</td>
 </tr>
@@ -205,7 +253,7 @@ tr:nth-child(even) { background-color: #f9f9f9; }
 <td style='background-color:#FFD700;'>MERCADONA ESPANHA</td>
 <td>1,05</td>
 <td>0,93</td>
-<td>12,000</td>
+<td>6</td>
 <td>Litros</td>
 <td>PRODUTOS LACTEOS</td>
 </tr>
@@ -240,6 +288,16 @@ tr:nth-child(even) { background-color: #f9f9f9; }
 <td>PRODUTOS EM CONSERVA</td>
 </tr>
 <tr>
+<td>M13.002</td>
+<td>NEMS COM FRANGO (4 PEÇAS)</td>
+<td style='background-color:#87CEFA;'>LECLERC</td>
+<td>2,29</td>
+<td>2,29</td>
+<td>1,000</td>
+<td>Unidade</td>
+<td>PRATOS COZINHADOS</td>
+</tr>
+<tr>
 <td>A1.004</td>
 <td>PERNINHA DE FRANGO</td>
 <td style='background-color:#FFD700;'>MERCADONA ESPANHA</td>
@@ -258,6 +316,26 @@ tr:nth-child(even) { background-color: #f9f9f9; }
 <td>0,658</td>
 <td>KILO</td>
 <td>TALHO</td>
+</tr>
+<tr>
+<td>F7.011</td>
+<td>QUEIJO VACA OVELHA CABRA INTENSO</td>
+<td style='background-color:#FFB6C1;'></td>
+<td>4,91</td>
+<td>0.00</td>
+<td>0</td>
+<td>KILO</td>
+<td>PRODUTOS LACTEOS</td>
+</tr>
+<tr>
+<td>B2.008</td>
+<td>TOCO MAO FUMADO AVECAR KG</td>
+<td style='background-color:#87CEFA;'>LECLERC</td>
+<td>6,64</td>
+<td>6,64</td>
+<td>1,000</td>
+<td>KILO</td>
+<td>CHARCUTERIA</td>
 </tr>
 </tbody></table>
 <script>
