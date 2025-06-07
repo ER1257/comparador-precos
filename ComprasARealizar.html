@@ -19,7 +19,7 @@ tr:nth-child(even) { background-color: #f9f9f9; }
 </head>
 <body>
 <h2>Lista de Compras a Efetuar</h2>
-<p><strong>Data de Atualização:</strong> 01/06/2025 18:03</p>
+<p><strong>Data de Atualização:</strong> 07/06/2025 07:12</p>
 <label for='filtroSubfamilia'>Filtrar por SubFamília:</label>
 <select id='filtroSubfamilia' onchange='filtrarSubfamilia()'>
 <option value=''>-- Todas --</option>
@@ -42,8 +42,8 @@ tr:nth-child(even) { background-color: #f9f9f9; }
 <option value='TALHO'>TALHO</option>
 </select>
 <button onclick='limparFiltro()'>Limpar Filtro</button>
-<p><strong>Número de artigos selecionados:</strong> 27</p>
-<p><strong>Total das Compras:</strong> 151,99 €</p>
+<p><strong>Número de artigos selecionados:</strong> 12</p>
+<p><strong>Total das Compras:</strong> 55,51 €</p>
 <table id='tabelaCompras'>
 <thead>
 <tr>
@@ -59,27 +59,7 @@ tr:nth-child(even) { background-color: #f9f9f9; }
 </thead>
 <tbody>
 <tr>
-<td>G7.010</td>
-<td>ACEITONAS ANCHOA (150Grs)</td>
-<td style='background-color:#FFD700;'>MERCADONA ESPANHA</td>
-<td>1,05</td>
-<td>1,05</td>
-<td>3,000</td>
-<td>Unidade</td>
-<td>PRODUTOS EM CONSERVA</td>
-</tr>
-<tr>
-<td>G7.008</td>
-<td>ACEITONAS JALAPENO (150 Grs)</td>
-<td style='background-color:#FFD700;'>MERCADONA ESPANHA</td>
-<td>1,75</td>
-<td>1,75</td>
-<td>2,000</td>
-<td>Unidade</td>
-<td>PRODUTOS EM CONSERVA</td>
-</tr>
-<tr>
-<td>G7.009</td>
+<td onclick='this.parentElement.style.display = "none"' style='cursor:pointer; color:blue; text-decoration:underline;' title='Clique para esconder esta linha'>G7.009</td>
 <td>ACEITONAS PIMIENTO (150 Grs)</td>
 <td style='background-color:#FFD700;'>MERCADONA ESPANHA</td>
 <td>1,75</td>
@@ -89,19 +69,9 @@ tr:nth-child(even) { background-color: #f9f9f9; }
 <td>PRODUTOS EM CONSERVA</td>
 </tr>
 <tr>
-<td>Q17.001</td>
-<td>AGUA COM GAS (25 CL)</td>
-<td style='background-color:#ADFF2F;'>LIDL</td>
-<td>1,39</td>
-<td>1,39</td>
-<td>2</td>
-<td>Pack 6</td>
-<td>BEBIDAS SUMOS</td>
-</tr>
-<tr>
-<td>Q17.003</td>
+<td onclick='this.parentElement.style.display = "none"' style='cursor:pointer; color:blue; text-decoration:underline;' title='Clique para esconder esta linha'>Q17.003</td>
 <td>AGUA TONICA SCHWEPPES (1 L)</td>
-<td style='background-color:#87CEFA;'>LECLERC</td>
+<td style='background-color:#ADFF2F;'>LECLERC</td>
 <td>1,93</td>
 <td>1,64</td>
 <td>2,000</td>
@@ -109,47 +79,27 @@ tr:nth-child(even) { background-color: #f9f9f9; }
 <td>BEBIDAS SUMOS</td>
 </tr>
 <tr>
-<td>E5.003</td>
+<td onclick='this.parentElement.style.display = "none"' style='cursor:pointer; color:blue; text-decoration:underline;' title='Clique para esconder esta linha'>E5.003</td>
 <td>ARROZ BASMATI HACENDADO</td>
-<td style='background-color:#FFB6C1;'></td>
+<td style='background-color:#87CEFA;'></td>
 <td>2,00</td>
 <td>0.00</td>
-<td>2</td>
+<td>1</td>
 <td>KILO</td>
 <td>MERCEARIA</td>
 </tr>
 <tr>
-<td>O15.001</td>
-<td>BACALHAU GRAUDO</td>
-<td style='background-color:#ADFF2F;'>LIDL</td>
-<td>28,54</td>
-<td>28,54</td>
-<td>1,000</td>
+<td onclick='this.parentElement.style.display = "none"' style='cursor:pointer; color:blue; text-decoration:underline;' title='Clique para esconder esta linha'>E5.002</td>
+<td>ARROZ VAPORIZADO HACENDADO</td>
+<td style='background-color:#87CEFA;'></td>
+<td>1,35</td>
+<td>0.00</td>
+<td>1</td>
 <td>KILO</td>
-<td>PEIXARIA</td>
+<td>MERCEARIA</td>
 </tr>
 <tr>
-<td>B2.001</td>
-<td>BACON EM PEDACOS (200 Gr)</td>
-<td style='background-color:#ADFF2F;'>LIDL</td>
-<td>2,19</td>
-<td>2,19</td>
-<td>3,000</td>
-<td>Unidade</td>
-<td>CHARCUTERIA</td>
-</tr>
-<tr>
-<td>B2.002</td>
-<td>BACON FATIADO (300 Gr)</td>
-<td style='background-color:#ADFF2F;'>LIDL</td>
-<td>3,09</td>
-<td>3,09</td>
-<td>1,000</td>
-<td>Unidade</td>
-<td>CHARCUTERIA</td>
-</tr>
-<tr>
-<td>M13.003</td>
+<td onclick='this.parentElement.style.display = "none"' style='cursor:pointer; color:blue; text-decoration:underline;' title='Clique para esconder esta linha'>M13.003</td>
 <td>BATATAS FRITAS LISA GOURMET (180Grs)</td>
 <td style='background-color:#FFD700;'>MERCADONA ESPANHA</td>
 <td>1,45</td>
@@ -159,29 +109,19 @@ tr:nth-child(even) { background-color: #f9f9f9; }
 <td>PRATOS COZINHADOS</td>
 </tr>
 <tr>
-<td>E5.005</td>
-<td>CAFE CAPSULA  EXTRAFORTE (104 Gr)</td>
-<td style='background-color:#FFD700;'>MERCADONA ESPANHA</td>
-<td>3,65</td>
-<td>3,90</td>
-<td>1</td>
-<td>Unidade</td>
-<td>MERCEARIA</td>
-</tr>
-<tr>
-<td>E5.004</td>
-<td>CAFE CAPSULA RISTRETO (106 Gr)</td>
-<td style='background-color:#FFB6C1;'></td>
-<td>4,35</td>
+<td onclick='this.parentElement.style.display = "none"' style='cursor:pointer; color:blue; text-decoration:underline;' title='Clique para esconder esta linha'>C3.002</td>
+<td>CERVEJA SAGRES (33 cl)</td>
+<td style='background-color:#87CEFA;'></td>
+<td>0,59</td>
 <td>0.00</td>
-<td>1</td>
-<td>KILO</td>
-<td>MERCEARIA</td>
+<td>0</td>
+<td>Unidade</td>
+<td>BEBIDAS ALCOOL</td>
 </tr>
 <tr>
-<td>G7.005</td>
+<td onclick='this.parentElement.style.display = "none"' style='cursor:pointer; color:blue; text-decoration:underline;' title='Clique para esconder esta linha'>G7.005</td>
 <td>COGUMELOS LAMINADOS (185 Grs)</td>
-<td style='background-color:#DDA0DD;'>AUCHAN</td>
+<td style='background-color:#FFB6C1;'>AUCHAN</td>
 <td>1,02</td>
 <td>1,02</td>
 <td>3,000</td>
@@ -189,59 +129,9 @@ tr:nth-child(even) { background-color: #f9f9f9; }
 <td>PRODUTOS EM CONSERVA</td>
 </tr>
 <tr>
-<td>G7.004</td>
-<td>COGUMELOS SETAS Surtido</td>
-<td style='background-color:#DDA0DD;'>AUCHAN</td>
-<td>2,99</td>
-<td>2,99</td>
-<td>1,000</td>
-<td>Unidade</td>
-<td>PRODUTOS EM CONSERVA</td>
-</tr>
-<tr>
-<td>A1.003</td>
-<td>COXA DE FRANGO</td>
-<td style='background-color:#ADFF2F;'>LIDL</td>
-<td>5,69</td>
-<td>4,99</td>
-<td>1,000</td>
-<td>KILO</td>
-<td>TALHO</td>
-</tr>
-<tr>
-<td>H8.001</td>
-<td>CROQUETAS CAO (20Kg)</td>
-<td style='background-color:#ADFF2F;'>LIDL</td>
-<td>15,49</td>
-<td>15,39</td>
-<td>1,000</td>
-<td>Unidade</td>
-<td>PET FOOD</td>
-</tr>
-<tr>
-<td>B2.014</td>
-<td>FIAMBRE DA PERNA EXTRA (300Grs)</td>
-<td style='background-color:#ADFF2F;'>LIDL</td>
-<td>2,39</td>
-<td>2,39</td>
-<td>1,000</td>
-<td>Unidade</td>
-<td>CHARCUTERIA</td>
-</tr>
-<tr>
-<td>B2.010</td>
-<td>FIAMBRE YORK (500Gr)</td>
-<td style='background-color:#ADFF2F;'>LIDL</td>
-<td>2,65</td>
-<td>2,65</td>
-<td>1,000</td>
-<td>Unidade</td>
-<td>CHARCUTERIA</td>
-</tr>
-<tr>
-<td>C3.004</td>
+<td onclick='this.parentElement.style.display = "none"' style='cursor:pointer; color:blue; text-decoration:underline;' title='Clique para esconder esta linha'>C3.004</td>
 <td>GIN NORDES (70 cl)</td>
-<td style='background-color:#DDA0DD;'>AUCHAN</td>
+<td style='background-color:#FFB6C1;'>AUCHAN</td>
 <td>23,99</td>
 <td>23,99</td>
 <td>1,000</td>
@@ -249,19 +139,19 @@ tr:nth-child(even) { background-color: #f9f9f9; }
 <td>BEBIDAS ALCOOL</td>
 </tr>
 <tr>
-<td>F6.002</td>
-<td>MANTEIGA DOS AÇORES (250 Grs)</td>
-<td style='background-color:#ADFF2F;'>LIDL</td>
-<td>1,98</td>
-<td>1,98</td>
-<td>3,000</td>
-<td>Unidade</td>
+<td onclick='this.parentElement.style.display = "none"' style='cursor:pointer; color:blue; text-decoration:underline;' title='Clique para esconder esta linha'>F6.001</td>
+<td>LEITE MAGRO S/LACTOSE</td>
+<td style='background-color:#FFD700;'>MERCADONA ESPANHA</td>
+<td>1,05</td>
+<td>0,93</td>
+<td>6</td>
+<td>Litros</td>
 <td>PRODUTOS LACTEOS</td>
 </tr>
 <tr>
-<td>G7.002</td>
+<td onclick='this.parentElement.style.display = "none"' style='cursor:pointer; color:blue; text-decoration:underline;' title='Clique para esconder esta linha'>G7.002</td>
 <td>MEXILHOES MOLHO ESCABECHE</td>
-<td style='background-color:#DDA0DD;'>AUCHAN</td>
+<td style='background-color:#FFB6C1;'>AUCHAN</td>
 <td>1,00</td>
 <td>1,00</td>
 <td>4,000</td>
@@ -269,64 +159,24 @@ tr:nth-child(even) { background-color: #f9f9f9; }
 <td>PRODUTOS EM CONSERVA</td>
 </tr>
 <tr>
-<td>G7.003</td>
-<td>MEXILHOES MOLHO SALSA VIEIRA</td>
-<td style='background-color:#DDA0DD;'>AUCHAN</td>
-<td>1,35</td>
-<td>1,35</td>
-<td>2,000</td>
+<td onclick='this.parentElement.style.display = "none"' style='cursor:pointer; color:blue; text-decoration:underline;' title='Clique para esconder esta linha'>G7.002</td>
+<td>MEXILHOES MOLHO ESCABECHE</td>
+<td style='background-color:#DDA0DD;'>GADIS</td>
+<td>1,00</td>
+<td>1,00</td>
+<td>4,000</td>
 <td>Unidade</td>
 <td>PRODUTOS EM CONSERVA</td>
 </tr>
 <tr>
-<td>A1.004</td>
-<td>PERNINHA DE FRANGO</td>
-<td style='background-color:#FFD700;'>MERCADONA ESPANHA</td>
-<td>4,98</td>
-<td>3,80</td>
-<td>0,863</td>
-<td>KILO</td>
-<td>TALHO</td>
-</tr>
-<tr>
-<td>A1.007</td>
-<td>PERNINHA DE PERU </td>
-<td style='background-color:#ADFF2F;'>LIDL</td>
-<td>3,69</td>
-<td>3,89</td>
-<td>0,658</td>
-<td>KILO</td>
-<td>TALHO</td>
-</tr>
-<tr>
-<td>F7.009</td>
-<td>QUEIJO CABRA OVELHA PICANTE</td>
-<td style='background-color:#FFD700;'>MERCADONA ESPANHA</td>
-<td>4,22</td>
-<td>17,73</td>
-<td>0,238</td>
-<td>KILO</td>
-<td>PRODUTOS LACTEOS</td>
-</tr>
-<tr>
-<td>F7.010</td>
-<td>QUEIJO OVELHA FUERTE</td>
-<td style='background-color:#FFD700;'>MERCADONA ESPANHA</td>
-<td>6,19</td>
-<td>18,30</td>
-<td>0,338</td>
-<td>KILO</td>
-<td>PRODUTOS LACTEOS</td>
-</tr>
-<tr>
-<td>B2.008</td>
-<td>TOCO MAO FUMADO AVECAR KG</td>
-<td style='background-color:#87CEFA;'>LECLERC</td>
-<td>6,64</td>
-<td>6,64</td>
-<td>1,000</td>
-<td>KILO</td>
-<td>CHARCUTERIA</td>
+<td onclick='this.parentElement.style.display = "none"' style='cursor:pointer; color:blue; text-decoration:underline;' title='Clique para esconder esta linha'>G7.003</td>
+<td>MEXILHOES MOLHO SALSA VIEIRA</td>
+<td style='background-color:#FFB6C1;'>AUCHAN</td>
+<td>1,35</td>
+<td>1,35</td>
+<td>4</td>
+<td>Unidade</td>
+<td>PRODUTOS EM CONSERVA</td>
 </tr>
 </tbody></table>
 <script>
